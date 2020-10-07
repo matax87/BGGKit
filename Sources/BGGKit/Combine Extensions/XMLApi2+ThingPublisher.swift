@@ -8,14 +8,14 @@
 import Foundation
 import Combine
 
-extension XMLApi2 {
+public extension XMLApi2 {
 
     @available(iOS 13.0, *)
     @available(OSX 10.15, *)
     struct ThingPublisher: Publisher {
         
-        typealias Output = [ThingItem]
-        typealias Failure = Error
+        public typealias Output = [ThingItem]
+        public typealias Failure = Error
         
         private let xmlApi2: XMLApi2
         private let ids: [String]
@@ -24,7 +24,7 @@ extension XMLApi2 {
         private let page: Int?
         private let pageSize: Int?
         
-        init(xmlApi2: XMLApi2,
+        public init(xmlApi2: XMLApi2,
              ids: [String],
              types: [ItemKind],
              options: XMLApi2.ThingOptions,
@@ -38,7 +38,7 @@ extension XMLApi2 {
             self.pageSize = pageSize
         }
 
-        func receive<S: Subscriber>(subscriber: S)
+        public func receive<S: Subscriber>(subscriber: S)
         where S.Input == Output, S.Failure == Failure {
             let subscription = ThingSubscription(xmlApi2: xmlApi2,
                                                  ids: ids,
@@ -52,7 +52,7 @@ extension XMLApi2 {
     }
 }
 
-extension XMLApi2 {
+public extension XMLApi2 {
 
     @available(iOS 13.0, *)
     @available(OSX 10.15, *)

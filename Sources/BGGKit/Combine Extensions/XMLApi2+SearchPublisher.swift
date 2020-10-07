@@ -8,21 +8,21 @@
 import Foundation
 import Combine
 
-extension XMLApi2 {
+public extension XMLApi2 {
 
     @available(iOS 13.0, *)
     @available(OSX 10.15, *)
     struct SearchPublisher: Publisher {
         
-        typealias Output = [SearchItem]
-        typealias Failure = Error
+        public typealias Output = [SearchItem]
+        public typealias Failure = Error
         
         private let xmlApi2: XMLApi2
         private let query: String
         private let matchExactly: Bool
         private let types: [ItemKind]
         
-        init(xmlApi2: XMLApi2,
+        public init(xmlApi2: XMLApi2,
              query: String,
              matchExactly: Bool,
              types: [ItemKind]) {
@@ -32,7 +32,7 @@ extension XMLApi2 {
             self.types = types
         }
 
-        func receive<S: Subscriber>(subscriber: S)
+        public func receive<S: Subscriber>(subscriber: S)
         where S.Input == Output, S.Failure == Failure {
             let subscription = SearchSubscription(xmlApi2: xmlApi2,
                                                   query: query,
@@ -44,7 +44,7 @@ extension XMLApi2 {
     }
 }
 
-extension XMLApi2 {
+public extension XMLApi2 {
 
     @available(iOS 13.0, *)
     @available(OSX 10.15, *)

@@ -8,24 +8,24 @@
 import Foundation
 import Combine
 
-extension XMLApi2 {
+public extension XMLApi2 {
 
     @available(iOS 13.0, *)
     @available(OSX 10.15, *)
     struct HotPublisher: Publisher {
         
-        typealias Output = [HotItem]
-        typealias Failure = Error
+        public typealias Output = [HotItem]
+        public typealias Failure = Error
         
         private let xmlApi2: XMLApi2
         private let type: ItemKind
         
-        init(xmlApi2: XMLApi2, type: ItemKind) {
+        public init(xmlApi2: XMLApi2, type: ItemKind) {
             self.xmlApi2 = xmlApi2
             self.type = type
         }
 
-        func receive<S: Subscriber>(subscriber: S)
+        public func receive<S: Subscriber>(subscriber: S)
         where S.Input == Output, S.Failure == Failure {
             let subscription = HotSubscription(xmlApi2: xmlApi2,
                                                type: type,
@@ -35,7 +35,7 @@ extension XMLApi2 {
     }
 }
 
-extension XMLApi2 {
+public extension XMLApi2 {
 
     @available(iOS 13.0, *)
     @available(OSX 10.15, *)
