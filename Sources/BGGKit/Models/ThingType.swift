@@ -8,8 +8,8 @@
 import Foundation
 
 public protocol ThingType: Identifiable {
-    public var id: String { get }
-    public var name: String { get }
-    public var thumbnail: URL? { get }
+    var id: String { get }
+    var name: String { get }
+    var thumbnail: URL? { get }
 }
 
