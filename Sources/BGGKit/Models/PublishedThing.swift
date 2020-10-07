@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol PublishedThing: ThingType {
-    var yearPublished: Int? { get }
+public protocol PublishedThing: ThingType {
+    public var yearPublished: Int? { get }
 }

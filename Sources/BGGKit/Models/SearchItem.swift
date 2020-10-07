@@ -9,10 +9,10 @@ import Foundation
 
 public struct SearchItem: PublishedThing {
     public let id: String
-    let name: String
-    let thumbnail: URL?
-    let yearPublished: Int?
+    public let name: String
+    public let thumbnail: URL?
+    public let yearPublished: Int?
 
-    let type: ItemKind
-    let isAlternateName: Bool
+    public let type: ItemKind
+    public let isAlternateName: Bool
 }

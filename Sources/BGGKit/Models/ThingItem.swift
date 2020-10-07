@@ -9,14 +9,14 @@ import Foundation
 
 public struct ThingItem: PublishedThing {
     public let id: String
-    let names: [(NameKind, String)]
-    let thumbnail: URL?
-    let image: URL?
-    let type: ItemKind
-    let description: String
-    let yearPublished: Int?
+    public let names: [(NameKind, String)]
+    public let thumbnail: URL?
+    public let image: URL?
+    public let type: ItemKind
+    public let description: String
+    public let yearPublished: Int?
 
-    var name: String {
+    public var name: String {
         names.first { $0.0 == .primary }!.1
     }
 }

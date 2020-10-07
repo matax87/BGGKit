@@ -9,9 +9,9 @@ import Foundation
 
 public struct HotItem: PublishedThing {
     public let id: String
-    let name: String
-    let thumbnail: URL?
-    let yearPublished: Int?
+    public let name: String
+    public let thumbnail: URL?
+    public let yearPublished: Int?
 
-    let rank: Int
+    public let rank: Int
 }
