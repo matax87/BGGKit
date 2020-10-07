@@ -10,7 +10,9 @@ import Foundation
 import Combine
 
 extension XMLApi2 {
-    
+
+    @available(iOS 13.0, *)
+    @available(OSX 10.15, *)
     struct SearchPublisher: Publisher {
         
         typealias Output = [SearchItem]
@@ -30,8 +32,7 @@ extension XMLApi2 {
             self.matchExactly = matchExactly
             self.types = types
         }
-        
-        @available(OSX 10.15, *)
+
         func receive<S: Subscriber>(subscriber: S)
         where S.Input == Output, S.Failure == Failure {
             let subscription = SearchSubscription(xmlApi2: xmlApi2,
@@ -45,7 +46,9 @@ extension XMLApi2 {
 }
 
 extension XMLApi2 {
-    
+
+    @available(iOS 13.0, *)
+    @available(OSX 10.15, *)
     func searchPublisher(query: String,
                          matchExactly: Bool = false,
                          types: [ItemKind] = [.boardgame]) -> SearchPublisher {
@@ -58,7 +61,8 @@ extension XMLApi2 {
 }
 
 private extension XMLApi2 {
-    
+
+    @available(iOS 13.0, *)
     @available(OSX 10.15, *)
     class SearchSubscription<Target: Subscriber>: Subscription
     where Target.Input == [SearchItem], Target.Failure == Error {

@@ -10,7 +10,9 @@ import Foundation
 import Combine
 
 extension XMLApi2 {
-    
+
+    @available(iOS 13.0, *)
+    @available(OSX 10.15, *)
     struct HotPublisher: Publisher {
         
         typealias Output = [HotItem]
@@ -23,8 +25,7 @@ extension XMLApi2 {
             self.xmlApi2 = xmlApi2
             self.type = type
         }
-        
-        @available(OSX 10.15, *)
+
         func receive<S: Subscriber>(subscriber: S)
         where S.Input == Output, S.Failure == Failure {
             let subscription = HotSubscription(xmlApi2: xmlApi2,
@@ -36,7 +37,9 @@ extension XMLApi2 {
 }
 
 extension XMLApi2 {
-    
+
+    @available(iOS 13.0, *)
+    @available(OSX 10.15, *)
     func hotPublisher(for type: ItemKind = .boardgame) -> HotPublisher {
         return HotPublisher(xmlApi2: self, type: type)
     }
@@ -44,7 +47,8 @@ extension XMLApi2 {
 }
 
 private extension XMLApi2 {
-    
+
+    @available(iOS 13.0, *)
     @available(OSX 10.15, *)
     class HotSubscription<Target: Subscriber>: Subscription
     where Target.Input == [HotItem], Target.Failure == Error {
