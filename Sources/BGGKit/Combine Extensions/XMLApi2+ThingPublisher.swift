@@ -5,7 +5,6 @@
 //  Created by Matteo Matassoni on 07/10/2020.
 //
 
-#if canImport(Combine)
 import Foundation
 import Combine
 
@@ -128,4 +127,3 @@ private extension XMLApi2 {
         }
     }
 }
-#endif

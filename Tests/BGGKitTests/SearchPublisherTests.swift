@@ -5,11 +5,12 @@
 //  Created by Matteo Matassoni on 06/10/2020.
 //
 
-#if canImport(Combine)
 import XCTest
 import Combine
 @testable import BGGKit
 
+@available(iOS 13.0, *)
+@available(OSX 10.15, *)
 final class SearchPublisherTests: XCTestCase {
 
     private var cancellable: AnyCancellable!
@@ -35,4 +36,3 @@ final class SearchPublisherTests: XCTestCase {
     }
     
 }
-#endif
