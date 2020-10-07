@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct NameKind: Hashable {
+public struct NameKind: Hashable {
+    public let rawValue: String
+    
     static let primary = NameKind(rawValue: "primary")
     static let alternate = NameKind(rawValue: "alternate")
-
-    let rawValue: String
 }

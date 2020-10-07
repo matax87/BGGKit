@@ -8,5 +8,5 @@
 import Foundation
 
 public protocol PublishedThing: ThingType {
-    public var yearPublished: Int? { get }
+    var yearPublished: Int? { get }
 }
