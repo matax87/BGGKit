@@ -28,7 +28,7 @@ final class HotItemsParserTests: XCTestCase {
                 XCTAssertEqual(item.name, "Bonfire")
                 XCTAssertEqual(item.rank, 1)
                 XCTAssertEqual(item.thumbnail, URL(string: "https://cf.geekdo-images.com/thumb/img/Vi9tZ60juVkTpNoUIdLFzW8N9Aw=/fit-in/200x150/filters:strip_icc()/pic5301335.jpg")!)
-                XCTAssertEqual(item.yearPublished, 2020)
+                XCTAssertEqual(item.yearPublished, "2020")
                 expectation.fulfill()
             } catch {
                 XCTFail()

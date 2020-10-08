@@ -11,7 +11,7 @@ public struct HotItem: PublishedThing {
     public let id: String
     public let name: String
     public let thumbnail: URL?
-    public let yearPublished: Int?
+    public let yearPublished: String?
 
     public let rank: Int
 }

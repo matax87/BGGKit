@@ -11,7 +11,7 @@ public struct SearchItem: PublishedThing {
     public let id: String
     public let name: String
     public let thumbnail: URL?
-    public let yearPublished: Int?
+    public let yearPublished: String?
 
     public let type: ItemKind
     public let isAlternateName: Bool

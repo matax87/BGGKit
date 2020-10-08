@@ -14,7 +14,7 @@ public struct ThingItem: PublishedThing {
     public let image: URL?
     public let type: ItemKind
     public let description: String
-    public let yearPublished: Int?
+    public let yearPublished: String?
 
     public var name: String {
         names.first { $0.0 == .primary }!.1

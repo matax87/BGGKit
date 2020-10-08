@@ -17,7 +17,7 @@ internal final class ThingItemParser : NSObject, NodeParser {
     private let imageParser = URLElementValueParser(tagName: "image")
     private let nameParser = NameParser(tagName: "name")
     private let descriptionParser = StringElementValueParser(tagName: "description")
-    private let yearPublishedParser = IntElementAttributeValueParser(tagName: "yearpublished")
+    private let yearPublishedParser = StringElementAttributeValueParser(tagName: "yearpublished")
     
     var delegateStack: ParserDelegateStack?
     private var currentParser: ParserDelegate?
