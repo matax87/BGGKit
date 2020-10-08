@@ -15,7 +15,7 @@ internal final class SearchItemParser : NSObject, NodeParser {
     private var isAlternateName = false
     private let thumbnailParser = URLElementAttributeValueParser(tagName: "thumbnail")
     private let nameParser = StringElementAttributeValueParser(tagName: "name")
-    private let yearPublishedParser = IntElementAttributeValueParser(tagName: "yearpublished")
+    private let yearPublishedParser = StringElementAttributeValueParser(tagName: "yearpublished")
     
     var delegateStack: ParserDelegateStack?
     var result: SearchItem?

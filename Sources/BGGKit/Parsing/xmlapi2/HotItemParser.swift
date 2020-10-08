@@ -14,7 +14,7 @@ internal final class HotItemParser : NSObject, NodeParser {
     private var rank: Int!
     private let thumbnailParser = URLElementAttributeValueParser(tagName: "thumbnail")
     private let nameParser = StringElementAttributeValueParser(tagName: "name")
-    private let yearPublishedParser = IntElementAttributeValueParser(tagName: "yearpublished")
+    private let yearPublishedParser = StringElementAttributeValueParser(tagName: "yearpublished")
     
     var delegateStack: ParserDelegateStack?
     var result: HotItem?

@@ -28,7 +28,7 @@ final class SearchItemsParserTests: XCTestCase {
                 XCTAssertEqual(item.name, "Catan")
                 XCTAssertEqual(item.type, .boardgame)
                 XCTAssertNil(item.thumbnail)
-                XCTAssertEqual(item.yearPublished, 1995)
+                XCTAssertEqual(item.yearPublished, "1995")
                 expectation.fulfill()
             } catch {
                 XCTFail()
@@ -50,7 +50,7 @@ final class SearchItemsParserTests: XCTestCase {
                 XCTAssertEqual(item.name, "Il Signore degli Anelli: Viaggi nella Terra di Mezzo – Creature dell’Oscurità")
                 XCTAssertEqual(item.type, .boardgame)
                 XCTAssertNil(item.thumbnail)
-                XCTAssertEqual(item.yearPublished, 2020)
+                XCTAssertEqual(item.yearPublished, "2020")
                 XCTAssertTrue(item.isAlternateName)
                 expectation.fulfill()
             } catch {
