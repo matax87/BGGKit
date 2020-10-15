@@ -15,7 +15,7 @@ final class ThingPublisherTests: XCTestCase {
     private var cancellable: AnyCancellable!
 
     static var allTests = [
-        ("test", test)
+        ("test", test),
     ]
 
     func test() {

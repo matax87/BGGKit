@@ -14,7 +14,7 @@ let package = Package(
         .library(
             name: "BGGKit",
             targets: ["BGGKit"]
-        )
+        ),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -31,8 +31,8 @@ let package = Package(
             name: "BGGKitTests",
             dependencies: ["BGGKit"],
             resources: [
-                .process("Resources")
+                .process("Resources"),
             ]
-        )
+        ),
     ]
 )
