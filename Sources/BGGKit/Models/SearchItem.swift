@@ -7,12 +7,12 @@
 
 import Foundation
 
-public struct SearchItem: PublishedThing {
+public struct SearchItem {
     public let id: String
     public let name: String
     public let thumbnail: URL?
-    public let yearPublished: String?
+    public let yearPublished: Int?
 
-    public let type: ItemKind
+    public let type: Kind
     public let isAlternateName: Bool
 }

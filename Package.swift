@@ -27,6 +27,10 @@ let package = Package(
             dependencies: []),
         .testTarget(
             name: "BGGKitTests",
-            dependencies: ["BGGKit"]),
+            dependencies: ["BGGKit"],
+            resources: [
+                .process("Resources")
+            ]
+        ),
     ]
 )

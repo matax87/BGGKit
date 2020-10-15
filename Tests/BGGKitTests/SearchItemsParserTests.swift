@@ -16,7 +16,9 @@ final class SearchItemsParserTests: XCTestCase {
     ]
 
     func testParsingPrimaryName() {
-        let xmlData = SearchItems.xmlString1.data(using: .utf8)!
+        let xmlFileUrl = Bundle.module.url(forResource: "searchItems1",
+                                                 withExtension: "xml")!
+        let xmlData = try! Data(contentsOf: xmlFileUrl)
         let parser = SearchItemsParser(xmlData: xmlData)
         let expectation = XCTestExpectation(description: "Parse BGG Search Items")
         parser.parse { result in
@@ -28,17 +30,19 @@ final class SearchItemsParserTests: XCTestCase {
                 XCTAssertEqual(item.name, "Catan")
                 XCTAssertEqual(item.type, .boardgame)
                 XCTAssertNil(item.thumbnail)
-                XCTAssertEqual(item.yearPublished, "1995")
+                XCTAssertEqual(item.yearPublished, 1995)
                 expectation.fulfill()
             } catch {
                 XCTFail()
             }
         }
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: 3.0)
     }
 
     func testParsingWithAlternateName() {
-        let xmlData = SearchItems.xmlString2.data(using: .utf8)!
+        let xmlFileUrl = Bundle.module.url(forResource: "searchItems2",
+                                           withExtension: "xml")!
+        let xmlData = try! Data(contentsOf: xmlFileUrl)
         let parser = SearchItemsParser(xmlData: xmlData)
         let expectation = XCTestExpectation(description: "Parse BGG Search Items")
         parser.parse { result in
@@ -46,18 +50,18 @@ final class SearchItemsParserTests: XCTestCase {
                 let items = try result.get()
                 XCTAssertNotNil(items.first)
                 let item = items.first!
-                XCTAssertEqual(item.id, "316630")
-                XCTAssertEqual(item.name, "Il Signore degli Anelli: Viaggi nella Terra di Mezzo – Creature dell’Oscurità")
+                XCTAssertEqual(item.id, "823")
+                XCTAssertEqual(item.name, "Il Signore Degli Anelli")
                 XCTAssertEqual(item.type, .boardgame)
                 XCTAssertNil(item.thumbnail)
-                XCTAssertEqual(item.yearPublished, "2020")
+                XCTAssertEqual(item.yearPublished, 2000)
                 XCTAssertTrue(item.isAlternateName)
                 expectation.fulfill()
             } catch {
                 XCTFail()
             }
         }
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: 3.0)
     }
     
 }

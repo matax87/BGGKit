@@ -11,11 +11,11 @@ internal final class SearchItemParser : NSObject, NodeParser {
     private let tagName: String
     
     private var id: String!
-    private var type: ItemKind!
+    private var type: SearchItem.Kind!
     private var isAlternateName = false
     private let thumbnailParser = URLElementAttributeValueParser(tagName: "thumbnail")
     private let nameParser = StringElementAttributeValueParser(tagName: "name")
-    private let yearPublishedParser = StringElementAttributeValueParser(tagName: "yearpublished")
+    private let yearPublishedParser = IntElementAttributeValueParser(tagName: "yearpublished")
     
     var delegateStack: ParserDelegateStack?
     var result: SearchItem?
@@ -31,7 +31,7 @@ internal final class SearchItemParser : NSObject, NodeParser {
                 attributes attributeDict: [String : String] = [:]) {
         if elementName == tagName {
             id = attributeDict["id"]
-            type = attributeDict["type"].flatMap(ItemKind.init)
+            type = attributeDict["type"].flatMap(SearchItem.Kind.init)
             return
         }
         

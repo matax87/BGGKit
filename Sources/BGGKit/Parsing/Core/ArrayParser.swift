@@ -9,12 +9,7 @@ import Foundation
 
 internal final class ArrayParser<Parser : NodeParser> : NSObject, NodeParser {
 
-    struct Result<T> {
-        let items: [T]
-        let attributes: [String : String]
-    }
-
-    var result: Result<Parser.Item>?
+    var result: (items: [Parser.Item], attributes: [String : String])?
     var delegateStack: ParserDelegateStack?
 
     private let tagName: String
@@ -43,7 +38,7 @@ internal final class ArrayParser<Parser : NodeParser> : NSObject, NodeParser {
 
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         if elementName == tagName {
-            result = Result(items: items, attributes: attributes)
+            result = (items: items, attributes: attributes)
             delegateStack?.pop()
         }
     }

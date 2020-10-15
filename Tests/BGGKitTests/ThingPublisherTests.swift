@@ -34,7 +34,7 @@ final class ThingPublisherTests: XCTestCase {
             XCTAssertEqual(items[1].id, ids[1])
             expectation.fulfill()
         })
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: 3.0)
     }
     
 }
