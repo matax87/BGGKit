@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct SearchItem {
+public struct SearchItem: PublishedItem {
     public let id: String
     public let name: String
     public let thumbnail: URL?
