@@ -9,7 +9,7 @@ import XCTest
             testCase(XMLApi2Tests.allTests),
             testCase(ThingPublisherTests.allTests),
             testCase(HotPublisherTests.allTests),
-            testCase(SearchPublisherTests.allTests)
+            testCase(SearchPublisherTests.allTests),
         ]
     }
 #endif

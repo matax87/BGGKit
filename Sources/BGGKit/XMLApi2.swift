@@ -101,7 +101,7 @@ public final class XMLApi2 {
         }
     }
 
-    public func hot(type: HotItemKind = .boardgame,
+    public func hot(type: HotItem.Kind = .boardgame,
                     resultQueue: DispatchQueue = .main,
                     completion completionHandler: @escaping AsyncCollectionResult<HotItem>) {
         call(endpoint: "hot",
@@ -208,7 +208,7 @@ private extension XMLApi2 {
     }
 }
 
-private extension Collection where Iterator.Element == HotItemKind {
+private extension Collection where Iterator.Element == HotItem.Kind {
     func joined(separator: String = "") -> String {
         map { $0.rawValue }.joined(separator: separator)
     }

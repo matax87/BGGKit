@@ -11,7 +11,7 @@ import XCTest
 final class HotItemsParserTests: XCTestCase {
     static var allTests = [
         ("testParsing", testParsing),
-        ("testParsingWithOptionals", testParsingWithOptionals)
+        ("testParsingWithOptionals", testParsingWithOptionals),
     ]
 
     func testParsing() {

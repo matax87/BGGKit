@@ -11,7 +11,7 @@ import XCTest
 final class SearchItemsParserTests: XCTestCase {
     static var allTests = [
         ("testParsingPrimaryName", testParsingPrimaryName),
-        ("testParsingWithAlternateName", testParsingWithAlternateName)
+        ("testParsingWithAlternateName", testParsingWithAlternateName),
     ]
 
     func testParsingPrimaryName() {

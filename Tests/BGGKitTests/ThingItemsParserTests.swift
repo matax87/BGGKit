@@ -11,7 +11,7 @@ import XCTest
 final class ThingItemsParserTests: XCTestCase {
     static var allTests = [
         ("testParsingWithoutStatistic", testParsingWithoutStatistic),
-        ("testParsingWithStatistic", testParsingWithStatistic)
+        ("testParsingWithStatistic", testParsingWithStatistic),
     ]
 
     func testParsingWithoutStatistic() {

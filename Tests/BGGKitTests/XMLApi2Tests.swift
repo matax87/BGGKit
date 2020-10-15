@@ -11,7 +11,7 @@ import XCTest
 final class XMLApi2Tests: XCTestCase {
     static var allTests = [
         ("testHot", testHot),
-        ("testSearch", testSearch)
+        ("testSearch", testSearch),
     ]
 
     func testHot() {
