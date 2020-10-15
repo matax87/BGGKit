@@ -8,13 +8,12 @@
 import Foundation
 
 internal final class HotItemsParser {
-    
     fileprivate let xmlParser: XMLParser
     fileprivate let delegateStack: ParserDelegateStack
     fileprivate let hotItemsParser: ArrayParser<HotItemParser>
-    
+
     fileprivate let queue: DispatchQueue
-    
+
     init(xmlData: Data,
          queue: DispatchQueue = .init(label: "io.bggkit.parsing",
                                       qos: .userInitiated)) {
@@ -27,16 +26,15 @@ internal final class HotItemsParser {
         }
         delegateStack.push(hotItemsParser)
     }
-    
+
     func parse(resultQueue: DispatchQueue = .main,
                completion completionHandler: @escaping (Result<[HotItem], Error>) -> Void) {
         queue.async {
             self.performParse(resultQueue: resultQueue,
                               completion: completionHandler)
         }
-        
     }
-    
+
     fileprivate func performParse(resultQueue: DispatchQueue = .main,
                                   completion completionHandler: @escaping (Result<[HotItem], Error>) -> Void) {
         if xmlParser.parse() {
@@ -51,5 +49,4 @@ internal final class HotItemsParser {
             }
         }
     }
-    
 }

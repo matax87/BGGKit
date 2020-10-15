@@ -7,9 +7,9 @@
 
 import Foundation
 
-internal final class ThingItemParser : NSObject, NodeParser {
+internal final class ThingItemParser: NSObject, NodeParser {
     private let tagName: String
-    
+
     private var id: String!
     private var type: ThingItem.Kind!
     private var names: [(NameKind, String)] = []
@@ -25,20 +25,20 @@ internal final class ThingItemParser : NSObject, NodeParser {
     private let maxPlayTimeParser = IntElementAttributeValueParser(tagName: "maxplaytime")
     private let minAgeTimeParser = IntElementAttributeValueParser(tagName: "minage")
     private let statisticsParser = StatisticsParser(tagName: "statistics")
-    
+
     var delegateStack: ParserDelegateStack?
     private var currentParser: ParserDelegate?
     var result: ThingItem?
-    
+
     init(tagName: String) {
         self.tagName = tagName
     }
-    
+
     func parser(_ parser: XMLParser,
                 didStartElement elementName: String,
                 namespaceURI: String?,
                 qualifiedName qName: String?,
-                attributes attributeDict: [String : String] = [:]) {
+                attributes attributeDict: [String: String] = [:]) {
         print("\(#function) \(elementName)")
         if elementName == tagName {
             id = attributeDict["id"]
@@ -70,7 +70,7 @@ internal final class ThingItemParser : NSObject, NodeParser {
                               didStartElement: elementName,
                               namespaceURI: namespaceURI,
                               qualifiedName: qName,
-                              attributes: attributeDict)            
+                              attributes: attributeDict)
         case "yearpublished":
             currentParser = yearPublishedParser
             delegateStack?.push(yearPublishedParser)
@@ -147,8 +147,8 @@ internal final class ThingItemParser : NSObject, NodeParser {
             break
         }
     }
-    
-    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+
+    func parser(_: XMLParser, didEndElement elementName: String, namespaceURI _: String?, qualifiedName _: String?) {
         print("\(#function) \(elementName)")
         if elementName == tagName {
             result = ThingItem(id: id,
@@ -168,7 +168,7 @@ internal final class ThingItemParser : NSObject, NodeParser {
             delegateStack?.pop()
         }
     }
-    
+
     func didBecomeActive() {
         if currentParser === nameParser,
            let name = nameParser.result {

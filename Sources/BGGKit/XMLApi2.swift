@@ -16,7 +16,6 @@ public enum NetworkError: Error {
 }
 
 public final class XMLApi2 {
-    
     private let scheme: String
     private let baseUrl: String
     private let queue = DispatchQueue(
@@ -25,6 +24,7 @@ public final class XMLApi2 {
     )
 
     // MARK: Initialization
+
     public init(scheme: String = "https",
                 baseUrl: String = "www.boardgamegeek.com") {
         self.scheme = scheme
@@ -32,6 +32,7 @@ public final class XMLApi2 {
     }
 
     // MARK: Public APIs
+
     public struct ThingOptions: OptionSet {
         public let rawValue: Int
 
@@ -39,13 +40,13 @@ public final class XMLApi2 {
             self.rawValue = rawValue
         }
 
-        public static let versions         = ThingOptions(rawValue: 1 << 0)
-        public static let videos           = ThingOptions(rawValue: 1 << 1)
-        public static let stats            = ThingOptions(rawValue: 1 << 2)
-        public static let historical       = ThingOptions(rawValue: 1 << 3)
-        public static let marketplace      = ThingOptions(rawValue: 1 << 4)
-        public static let comments         = ThingOptions(rawValue: 1 << 5)
-        public static let ratingComments   = ThingOptions(rawValue: 1 << 6)
+        public static let versions = ThingOptions(rawValue: 1 << 0)
+        public static let videos = ThingOptions(rawValue: 1 << 1)
+        public static let stats = ThingOptions(rawValue: 1 << 2)
+        public static let historical = ThingOptions(rawValue: 1 << 3)
+        public static let marketplace = ThingOptions(rawValue: 1 << 4)
+        public static let comments = ThingOptions(rawValue: 1 << 5)
+        public static let ratingComments = ThingOptions(rawValue: 1 << 6)
 
         public static let all: ThingOptions = [
             .versions,
@@ -99,7 +100,7 @@ public final class XMLApi2 {
             }
         }
     }
-    
+
     public func hot(type: HotItemKind = .boardgame,
                     resultQueue: DispatchQueue = .main,
                     completion completionHandler: @escaping AsyncCollectionResult<HotItem>) {
@@ -107,7 +108,7 @@ public final class XMLApi2 {
              queryParameters: [(name: "type", value: type.rawValue)]) { [weak self] result in
             guard let self = self
             else { return }
-            
+
             do {
                 let xmlData = try result.get()
                 let parser = HotItemsParser(xmlData: xmlData,
@@ -121,7 +122,7 @@ public final class XMLApi2 {
             }
         }
     }
-    
+
     public func search(query: String,
                        matchExactly: Bool = false,
                        types: [SearchItem.Kind] = [.boardgame],
@@ -129,14 +130,14 @@ public final class XMLApi2 {
                        completion completionHandler: @escaping AsyncCollectionResult<SearchItem>) {
         call(endpoint: "search",
              queryParameters: [
-                (name: "query", value: query),
-                (name: "type", value: types.joined(separator: ",")),
-                matchExactly ? (name: "exact", value: "1") : nil
+                 (name: "query", value: query),
+                 (name: "type", value: types.joined(separator: ",")),
+                 matchExactly ? (name: "exact", value: "1") : nil
              ]
              .compactMap { $0 }) { [weak self] result in
             guard let self = self
             else { return }
-            
+
             do {
                 let xmlData = try result.get()
                 let parser = SearchItemsParser(xmlData: xmlData,
@@ -150,12 +151,11 @@ public final class XMLApi2 {
             }
         }
     }
-    
 }
 
 // MARK: Private APIs
+
 private extension XMLApi2 {
-    
     typealias QueryParameter = (name: String, value: String)
 
     func url(endpoint: String,
@@ -169,7 +169,7 @@ private extension XMLApi2 {
         }
         return components.url!
     }
-    
+
     func handle(data: Data?,
                 response: URLResponse?,
                 error: Error?,
@@ -177,21 +177,21 @@ private extension XMLApi2 {
         guard error == nil else {
             return completionHandler(.failure(error!))
         }
-        
+
         guard let httpResponse = response as? HTTPURLResponse else {
             let responseError = NetworkError.invalidResponse(response!)
             return completionHandler(.failure(responseError))
         }
-        
+
         let httpStatus = httpResponse.statusCode
-        guard 200...299 ~= httpStatus else {
+        guard 200 ... 299 ~= httpStatus else {
             let statusError = NetworkError.invalidHttpStatus(httpStatus)
             return completionHandler(.failure(statusError))
         }
-        
+
         completionHandler(.success(data!))
     }
-    
+
     func call(endpoint: String,
               queryParameters: [QueryParameter] = [],
               completion completionHandler: @escaping AsyncResult<Data>) {
@@ -206,29 +206,22 @@ private extension XMLApi2 {
         }
         task.resume()
     }
-    
 }
 
 private extension Collection where Iterator.Element == HotItemKind {
-    
     func joined(separator: String = "") -> String {
         map { $0.rawValue }.joined(separator: separator)
     }
-    
 }
 
 private extension Collection where Iterator.Element == ThingItem.Kind {
-
     func joined(separator: String = "") -> String {
         map { $0.rawValue }.joined(separator: separator)
     }
-
 }
 
 private extension Collection where Iterator.Element == SearchItem.Kind {
-
     func joined(separator: String = "") -> String {
         map { $0.rawValue }.joined(separator: separator)
     }
-
 }

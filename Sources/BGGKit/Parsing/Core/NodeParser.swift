@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal protocol NodeParser : ParserDelegate {
+internal protocol NodeParser: ParserDelegate {
     associatedtype Item
     var result: Item? { get }
 }

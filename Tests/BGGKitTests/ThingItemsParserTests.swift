@@ -5,11 +5,10 @@
 //  Created by Matteo Matassoni on 06/10/2020.
 //
 
-import XCTest
 @testable import BGGKit
+import XCTest
 
 final class ThingItemsParserTests: XCTestCase {
-
     static var allTests = [
         ("testParsingWithoutStatistic", testParsingWithoutStatistic),
         ("testParsingWithStatistic", testParsingWithStatistic)
@@ -17,7 +16,7 @@ final class ThingItemsParserTests: XCTestCase {
 
     func testParsingWithoutStatistic() {
         let xmlFileUrl = Bundle.module.url(forResource: "thingItems1",
-                                    withExtension: "xml")!
+                                           withExtension: "xml")!
         let xmlData = try! Data(contentsOf: xmlFileUrl)
         let parser = ThingItemsParser(xmlData: xmlData)
         let expectation = XCTestExpectation(description: "Parse BGG Thing Items")
@@ -87,7 +86,7 @@ final class ThingItemsParserTests: XCTestCase {
                 XCTAssertEqual(ratings.bayesAverage, 6.99815)
                 XCTAssertEqual(ratings.stddev, 1.47924)
                 XCTAssertEqual(ratings.median, 0)
-                XCTAssertEqual(ratings.owned, 146719)
+                XCTAssertEqual(ratings.owned, 146_719)
                 XCTAssertEqual(ratings.trading, 1852)
                 XCTAssertEqual(ratings.wanting, 477)
                 XCTAssertEqual(ratings.wishing, 5403)
@@ -119,6 +118,4 @@ final class ThingItemsParserTests: XCTestCase {
         }
         wait(for: [expectation], timeout: 3.0)
     }
-    
 }
-

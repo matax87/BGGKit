@@ -8,13 +8,11 @@
 import Foundation
 
 public extension SearchItem {
-
     enum Kind: String, CaseIterable {
         case rpgItem = "rpgitem"
-        case videogame = "videogame"
-        case boardgame = "boardgame"
+        case videogame
+        case boardgame
         case boardgameAccessory = "boardgameaccessory"
         case boardgameExpansion = "boardgameexpansion"
     }
-
 }

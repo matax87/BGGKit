@@ -8,14 +8,12 @@
 import Foundation
 
 public extension ThingItem {
-
     enum Kind: String, CaseIterable {
-        case boardgame = "boardgame"
+        case boardgame
         case boardgameExpansion = "boardgameexpansion"
         case boardgameAccessory = "boardgameaccessory"
-        case videogame = "videogame"
+        case videogame
         case rpgItem = "rpgitem"
         case rpgIssue = "rpgissue"
     }
-    
 }

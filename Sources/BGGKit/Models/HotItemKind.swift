@@ -8,9 +8,9 @@
 import Foundation
 
 public enum HotItemKind: String, CaseIterable {
-    case boardgame = "boardgame"
-    case rpg = "rpg"
-    case videogame = "videogame"
+    case boardgame
+    case rpg
+    case videogame
     case boardGamePerson = "boardgameperson"
     case rpgPerson = "rpgperson"
     case boardgameCompany = "boardgamecompany"

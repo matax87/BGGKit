@@ -1,6 +1,6 @@
 //
 //  ThingItem.Statistics.Ratings.swift
-//  
+//
 //
 //  Created by Matteo Matassoni on 15/10/2020.
 //
@@ -8,7 +8,6 @@
 import Foundation
 
 public extension ThingItem.Statistics {
-
     struct Ratings {
         let usersRated: Int
         let average: Double
@@ -24,5 +23,4 @@ public extension ThingItem.Statistics {
         let numberOfWeights: Int
         let averageWeight: Double
     }
-
 }
