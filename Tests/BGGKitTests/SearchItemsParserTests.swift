@@ -5,11 +5,10 @@
 //  Created by Matteo Matassoni on 06/10/2020.
 //
 
-import XCTest
 @testable import BGGKit
+import XCTest
 
 final class SearchItemsParserTests: XCTestCase {
-
     static var allTests = [
         ("testParsingPrimaryName", testParsingPrimaryName),
         ("testParsingWithAlternateName", testParsingWithAlternateName)
@@ -17,7 +16,7 @@ final class SearchItemsParserTests: XCTestCase {
 
     func testParsingPrimaryName() {
         let xmlFileUrl = Bundle.module.url(forResource: "searchItems1",
-                                                 withExtension: "xml")!
+                                           withExtension: "xml")!
         let xmlData = try! Data(contentsOf: xmlFileUrl)
         let parser = SearchItemsParser(xmlData: xmlData)
         let expectation = XCTestExpectation(description: "Parse BGG Search Items")
@@ -63,6 +62,4 @@ final class SearchItemsParserTests: XCTestCase {
         }
         wait(for: [expectation], timeout: 3.0)
     }
-    
 }
-

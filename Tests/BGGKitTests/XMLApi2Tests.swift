@@ -5,11 +5,10 @@
 //  Created by Matteo Matassoni on 06/10/2020.
 //
 
-import XCTest
 @testable import BGGKit
+import XCTest
 
 final class XMLApi2Tests: XCTestCase {
-
     static var allTests = [
         ("testHot", testHot),
         ("testSearch", testSearch)
@@ -62,5 +61,4 @@ final class XMLApi2Tests: XCTestCase {
         }
         wait(for: [expectation], timeout: 3.0)
     }
-
 }

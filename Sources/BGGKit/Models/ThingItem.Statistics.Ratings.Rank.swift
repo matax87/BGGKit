@@ -1,6 +1,6 @@
 //
 //  ThingItem.Statistics.Ratings.Rank.swift
-//  
+//
 //
 //  Created by Matteo Matassoni on 15/10/2020.
 //
@@ -8,7 +8,6 @@
 import Foundation
 
 public extension ThingItem.Statistics.Ratings {
-
     struct Rank {
         let type: Kind
         let id: String
@@ -17,23 +16,19 @@ public extension ThingItem.Statistics.Ratings {
         let value: Int
         let bayesAverage: Double
     }
-
 }
 
 public extension ThingItem.Statistics.Ratings.Rank {
-
-    struct Kind : Hashable {
+    struct Kind: Hashable {
         public let rawValue: String
 
         static let subtype = Kind(rawValue: "subtype")
         static let family = Kind(rawValue: "family")
     }
-
 }
 
 public extension ThingItem.Statistics.Ratings.Rank {
-
-    struct Name : Hashable {
+    struct Name: Hashable {
         public let rawValue: String
 
         static let boardgame = Name(rawValue: "boardgame")
@@ -46,5 +41,4 @@ public extension ThingItem.Statistics.Ratings.Rank {
         static let thematic = Name(rawValue: "thematic")
         static let wargames = Name(rawValue: "wargames")
     }
-
 }

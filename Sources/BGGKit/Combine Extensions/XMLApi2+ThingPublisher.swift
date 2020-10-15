@@ -5,31 +5,29 @@
 //  Created by Matteo Matassoni on 07/10/2020.
 //
 
-import Foundation
 import Combine
+import Foundation
 
 public extension XMLApi2 {
-
     @available(iOS 13.0, *)
     @available(OSX 10.15, *)
     struct ThingPublisher: Publisher {
-        
         public typealias Output = [ThingItem]
         public typealias Failure = Error
-        
+
         private let xmlApi2: XMLApi2
         private let ids: [String]
         private let types: [ThingItem.Kind]
         private let options: XMLApi2.ThingOptions
         private let page: Int?
         private let pageSize: Int?
-        
+
         public init(xmlApi2: XMLApi2,
-             ids: [String],
-             types: [ThingItem.Kind],
-             options: XMLApi2.ThingOptions,
-             page: Int?,
-             pageSize: Int?) {
+                    ids: [String],
+                    types: [ThingItem.Kind],
+                    options: XMLApi2.ThingOptions,
+                    page: Int?,
+                    pageSize: Int?) {
             self.xmlApi2 = xmlApi2
             self.ids = ids
             self.types = types
@@ -38,8 +36,7 @@ public extension XMLApi2 {
             self.pageSize = pageSize
         }
 
-        public func receive<S: Subscriber>(subscriber: S)
-        where S.Input == Output, S.Failure == Failure {
+        public func receive<S: Subscriber>(subscriber: S) where S.Input == Output, S.Failure == Failure {
             let subscription = ThingSubscription(xmlApi2: xmlApi2,
                                                  ids: ids,
                                                  types: types,
@@ -53,7 +50,6 @@ public extension XMLApi2 {
 }
 
 public extension XMLApi2 {
-
     @available(iOS 13.0, *)
     @available(OSX 10.15, *)
     func thingPublisher(ids: [String],
@@ -68,16 +64,12 @@ public extension XMLApi2 {
                               page: pageOrNil,
                               pageSize: pageSizeOrNil)
     }
-    
 }
 
 private extension XMLApi2 {
-
     @available(iOS 13.0, *)
     @available(OSX 10.15, *)
-    class ThingSubscription<Target: Subscriber>: Subscription
-    where Target.Input == [ThingItem], Target.Failure == Error {
-        
+    class ThingSubscription<Target: Subscriber>: Subscription where Target.Input == [ThingItem], Target.Failure == Error {
         private let xmlApi2: XMLApi2
         private let ids: [String]
         private let types: [ThingItem.Kind]
@@ -102,15 +94,15 @@ private extension XMLApi2 {
             self.target = target
             call()
         }
-        
-        func request(_ demand: Subscribers.Demand) {
-            //TODO: - Optionaly Adjust The Demand
+
+        func request(_: Subscribers.Demand) {
+            // TODO: - Optionaly Adjust The Demand
         }
-        
+
         func cancel() {
             target = nil
         }
-        
+
         func call() {
             xmlApi2.thing(ids: ids,
                           types: types,

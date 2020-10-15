@@ -8,13 +8,12 @@
 import Foundation
 
 internal final class SearchItemsParser {
-    
     fileprivate let xmlParser: XMLParser
     fileprivate let delegateStack: ParserDelegateStack
     fileprivate let searchItemsParser: ArrayParser<SearchItemParser>
-    
+
     fileprivate let queue: DispatchQueue
-    
+
     init(xmlData: Data,
          queue: DispatchQueue = .init(label: "io.bggkit.parsing",
                                       qos: .userInitiated)) {
@@ -27,16 +26,15 @@ internal final class SearchItemsParser {
         }
         delegateStack.push(searchItemsParser)
     }
-    
+
     func parse(resultQueue: DispatchQueue = .main,
                completion completionHandler: @escaping (Result<[SearchItem], Error>) -> Void) {
         queue.async {
             self.performParse(resultQueue: resultQueue,
                               completion: completionHandler)
         }
-        
     }
-    
+
     fileprivate func performParse(resultQueue: DispatchQueue = .main,
                                   completion completionHandler: @escaping (Result<[SearchItem], Error>) -> Void) {
         if xmlParser.parse() {
@@ -51,5 +49,4 @@ internal final class SearchItemsParser {
             }
         }
     }
-    
 }

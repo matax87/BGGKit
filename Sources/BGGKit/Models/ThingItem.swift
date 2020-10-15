@@ -8,7 +8,6 @@
 import Foundation
 
 public struct ThingItem {
-
     public let id: String
     public let names: [(NameKind, String)]
     public let thumbnail: URL?

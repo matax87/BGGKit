@@ -5,11 +5,10 @@
 //  Created by Matteo Matassoni on 06/10/2020.
 //
 
-import XCTest
 @testable import BGGKit
+import XCTest
 
 final class HotItemsParserTests: XCTestCase {
-
     static var allTests = [
         ("testParsing", testParsing),
         ("testParsingWithOptionals", testParsingWithOptionals)
@@ -17,7 +16,7 @@ final class HotItemsParserTests: XCTestCase {
 
     func testParsing() {
         let xmlFileUrl = Bundle.module.url(forResource: "hotItems",
-                                                 withExtension: "xml")!
+                                           withExtension: "xml")!
         let xmlData = try! Data(contentsOf: xmlFileUrl)
         let parser = HotItemsParser(xmlData: xmlData)
         let expectation = XCTestExpectation(description: "Parse BGG Hot Items")
@@ -41,7 +40,7 @@ final class HotItemsParserTests: XCTestCase {
 
     func testParsingWithOptionals() {
         let xmlFileUrl = Bundle.module.url(forResource: "hotItems",
-                                                 withExtension: "xml")!
+                                           withExtension: "xml")!
         let xmlData = try! Data(contentsOf: xmlFileUrl)
         let parser = HotItemsParser(xmlData: xmlData)
         let expectation = XCTestExpectation(description: "Parse BGG Hot Items")
@@ -59,6 +58,4 @@ final class HotItemsParserTests: XCTestCase {
         }
         wait(for: [expectation], timeout: 3.0)
     }
-    
 }
-

@@ -8,10 +8,8 @@
 import Foundation
 
 public extension ThingItem {
-
     struct Statistics {
         public let page: Int
         public let ratings: Ratings
     }
-
 }

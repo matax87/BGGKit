@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class RatingsParser : NSObject, NodeParser {
+final class RatingsParser: NSObject, NodeParser {
     private let tagName: String
 
     private let usersRatedParser = IntElementAttributeValueParser(tagName: "usersrated")
@@ -29,7 +29,7 @@ final class RatingsParser : NSObject, NodeParser {
 
     init(tagName: String) {
         self.tagName = tagName
-        self.ranksParser = ArrayParser(tagName: "ranks") { tag in
+        ranksParser = ArrayParser(tagName: "ranks") { tag in
             guard tag == "rank" else { return nil }
             return RankParser(tagName: tag)
         }
@@ -39,7 +39,7 @@ final class RatingsParser : NSObject, NodeParser {
                 didStartElement elementName: String,
                 namespaceURI: String?,
                 qualifiedName qName: String?,
-                attributes attributeDict: [String : String] = [:]) {
+                attributes attributeDict: [String: String] = [:]) {
         if elementName == tagName {
             return
         }
@@ -136,7 +136,7 @@ final class RatingsParser : NSObject, NodeParser {
         }
     }
 
-    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+    func parser(_: XMLParser, didEndElement elementName: String, namespaceURI _: String?, qualifiedName _: String?) {
         if elementName == tagName {
             result = ThingItem.Statistics.Ratings(usersRated: usersRatedParser.result!,
                                                   average: averageParser.result!,

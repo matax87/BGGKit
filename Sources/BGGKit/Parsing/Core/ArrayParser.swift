@@ -7,23 +7,22 @@
 
 import Foundation
 
-internal final class ArrayParser<Parser : NodeParser> : NSObject, NodeParser {
-
-    var result: (items: [Parser.Item], attributes: [String : String])?
+internal final class ArrayParser<Parser: NodeParser>: NSObject, NodeParser {
+    var result: (items: [Parser.Item], attributes: [String: String])?
     var delegateStack: ParserDelegateStack?
 
     private let tagName: String
     private let parserBuilder: (String) -> Parser?
     private var currentParser: Parser?
     private var items: [Parser.Item] = []
-    private var attributes: [String : String] = [:]
+    private var attributes: [String: String] = [:]
 
     init(tagName: String, parserBuilder: @escaping (String) -> Parser?) {
         self.tagName = tagName
         self.parserBuilder = parserBuilder
     }
 
-    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
+    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String: String] = [:]) {
         if elementName == tagName {
             return
         }
@@ -36,7 +35,7 @@ internal final class ArrayParser<Parser : NodeParser> : NSObject, NodeParser {
         }
     }
 
-    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+    func parser(_: XMLParser, didEndElement elementName: String, namespaceURI _: String?, qualifiedName _: String?) {
         if elementName == tagName {
             result = (items: items, attributes: attributes)
             delegateStack?.pop()

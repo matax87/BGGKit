@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal protocol ParserDelegate : XMLParserDelegate {
+internal protocol ParserDelegate: XMLParserDelegate {
     var delegateStack: ParserDelegateStack? { get set }
     func didBecomeActive()
 }

@@ -7,28 +7,28 @@
 
 import Foundation
 
-internal final class RankParser : NSObject, NodeParser {
+internal final class RankParser: NSObject, NodeParser {
     private let tagName: String
-    
+
     var type: ThingItem.Statistics.Ratings.Rank.Kind!
     var id: String!
     var name: ThingItem.Statistics.Ratings.Rank.Name!
     var friendlyName: String!
     var value: Int!
     var bayesAverage: Double!
-    
+
     var delegateStack: ParserDelegateStack?
     var result: ThingItem.Statistics.Ratings.Rank?
-    
+
     init(tagName: String) {
         self.tagName = tagName
     }
-    
-    func parser(_ parser: XMLParser,
+
+    func parser(_: XMLParser,
                 didStartElement elementName: String,
-                namespaceURI: String?,
-                qualifiedName qName: String?,
-                attributes attributeDict: [String : String] = [:]) {
+                namespaceURI _: String?,
+                qualifiedName _: String?,
+                attributes attributeDict: [String: String] = [:]) {
         guard elementName == tagName
         else { return }
 
@@ -39,8 +39,8 @@ internal final class RankParser : NSObject, NodeParser {
         value = attributeDict["value"].flatMap(Int.init)
         bayesAverage = attributeDict["bayesaverage"].flatMap(Double.init)
     }
-    
-    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+
+    func parser(_: XMLParser, didEndElement elementName: String, namespaceURI _: String?, qualifiedName _: String?) {
         if elementName == tagName {
             result = ThingItem.Statistics.Ratings.Rank(type: type,
                                                        id: id,
