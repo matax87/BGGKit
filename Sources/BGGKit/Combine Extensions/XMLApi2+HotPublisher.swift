@@ -18,9 +18,9 @@ public extension XMLApi2 {
         public typealias Failure = Error
         
         private let xmlApi2: XMLApi2
-        private let type: ItemKind
+        private let type: HotItemKind
         
-        public init(xmlApi2: XMLApi2, type: ItemKind) {
+        public init(xmlApi2: XMLApi2, type: HotItemKind) {
             self.xmlApi2 = xmlApi2
             self.type = type
         }
@@ -39,7 +39,7 @@ public extension XMLApi2 {
 
     @available(iOS 13.0, *)
     @available(OSX 10.15, *)
-    func hotPublisher(for type: ItemKind = .boardgame) -> HotPublisher {
+    func hotPublisher(for type: HotItemKind = .boardgame) -> HotPublisher {
         return HotPublisher(xmlApi2: self, type: type)
     }
     
@@ -53,11 +53,11 @@ private extension XMLApi2 {
     where Target.Input == [HotItem], Target.Failure == Error {
         
         private let xmlApi2: XMLApi2
-        private let type: ItemKind
+        private let type: HotItemKind
         private var target: Target?
         
         init(xmlApi2: XMLApi2,
-             type: ItemKind,
+             type: HotItemKind,
              target: Target) {
             self.xmlApi2 = xmlApi2
             self.type = type

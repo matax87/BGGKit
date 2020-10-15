@@ -30,7 +30,7 @@ final class HotPublisherTests: XCTestCase {
             XCTAssertFalse(items.isEmpty)
             expectation.fulfill()
         })
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: 3.0)
     }
     
 }

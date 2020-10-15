@@ -55,3 +55,11 @@ internal final class URLElementAttributeValueParser: ElementAttributeValueParser
     }
 
 }
+
+internal final class DoubleElementAttributeValueParser: ElementAttributeValueParser<Double> {
+
+    init(tagName: String) {
+        super.init(tagName: tagName, transform: Double.init)
+    }
+
+}

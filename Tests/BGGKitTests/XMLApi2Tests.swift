@@ -27,7 +27,7 @@ final class XMLApi2Tests: XCTestCase {
                 XCTFail()
             }
         }
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: 3.0)
     }
 
     func testSearch() {
@@ -42,7 +42,7 @@ final class XMLApi2Tests: XCTestCase {
                 XCTFail()
             }
         }
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: 3.0)
     }
 
     func testThing() {
@@ -60,7 +60,7 @@ final class XMLApi2Tests: XCTestCase {
                 XCTFail()
             }
         }
-        wait(for: [expectation], timeout: 10.0)
+        wait(for: [expectation], timeout: 3.0)
     }
 
 }

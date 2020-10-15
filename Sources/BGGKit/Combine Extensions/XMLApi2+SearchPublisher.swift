@@ -20,12 +20,12 @@ public extension XMLApi2 {
         private let xmlApi2: XMLApi2
         private let query: String
         private let matchExactly: Bool
-        private let types: [ItemKind]
+        private let types: [SearchItem.Kind]
         
         public init(xmlApi2: XMLApi2,
              query: String,
              matchExactly: Bool,
-             types: [ItemKind]) {
+             types: [SearchItem.Kind]) {
             self.xmlApi2 = xmlApi2
             self.query = query
             self.matchExactly = matchExactly
@@ -50,7 +50,7 @@ public extension XMLApi2 {
     @available(OSX 10.15, *)
     func searchPublisher(query: String,
                          matchExactly: Bool = false,
-                         types: [ItemKind] = [.boardgame]) -> SearchPublisher {
+                         types: [SearchItem.Kind] = [.boardgame]) -> SearchPublisher {
         return SearchPublisher(xmlApi2: self,
                                query: query,
                                matchExactly: matchExactly,
@@ -69,13 +69,13 @@ private extension XMLApi2 {
         private let xmlApi2: XMLApi2
         private let query: String
         private let matchExactly: Bool
-        private let types: [ItemKind]
+        private let types: [SearchItem.Kind]
         private var target: Target?
         
         init(xmlApi2: XMLApi2,
              query: String,
              matchExactly: Bool = false,
-             types: [ItemKind],
+             types: [SearchItem.Kind],
              target: Target) {
             self.xmlApi2 = xmlApi2
             self.query = query

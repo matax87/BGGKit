@@ -7,11 +7,11 @@
 
 import Foundation
 
-public struct HotItem: PublishedThing {
+public struct HotItem {
     public let id: String
     public let name: String
     public let thumbnail: URL?
-    public let yearPublished: String?
+    public let yearPublished: Int?
 
     public let rank: Int
 }

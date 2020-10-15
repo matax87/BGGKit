@@ -59,7 +59,7 @@ public final class XMLApi2 {
     }
 
     public func thing(ids: [String],
-                      types: [ItemKind] = [.boardgame],
+                      types: [ThingItem.Kind] = [.boardgame],
                       options: ThingOptions = [],
                       page pageOrNil: Int? = nil,
                       pageSize pageSizeOrNil: Int? = nil,
@@ -100,7 +100,7 @@ public final class XMLApi2 {
         }
     }
     
-    public func hot(type: ItemKind = .boardgame,
+    public func hot(type: HotItemKind = .boardgame,
                     resultQueue: DispatchQueue = .main,
                     completion completionHandler: @escaping AsyncCollectionResult<HotItem>) {
         call(endpoint: "hot",
@@ -124,7 +124,7 @@ public final class XMLApi2 {
     
     public func search(query: String,
                        matchExactly: Bool = false,
-                       types: [ItemKind] = [.boardgame],
+                       types: [SearchItem.Kind] = [.boardgame],
                        resultQueue: DispatchQueue = .main,
                        completion completionHandler: @escaping AsyncCollectionResult<SearchItem>) {
         call(endpoint: "search",
@@ -209,10 +209,26 @@ private extension XMLApi2 {
     
 }
 
-private extension Collection where Iterator.Element == ItemKind {
+private extension Collection where Iterator.Element == HotItemKind {
     
     func joined(separator: String = "") -> String {
         map { $0.rawValue }.joined(separator: separator)
     }
     
+}
+
+private extension Collection where Iterator.Element == ThingItem.Kind {
+
+    func joined(separator: String = "") -> String {
+        map { $0.rawValue }.joined(separator: separator)
+    }
+
+}
+
+private extension Collection where Iterator.Element == SearchItem.Kind {
+
+    func joined(separator: String = "") -> String {
+        map { $0.rawValue }.joined(separator: separator)
+    }
+
 }

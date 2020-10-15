@@ -19,14 +19,14 @@ public extension XMLApi2 {
         
         private let xmlApi2: XMLApi2
         private let ids: [String]
-        private let types: [ItemKind]
+        private let types: [ThingItem.Kind]
         private let options: XMLApi2.ThingOptions
         private let page: Int?
         private let pageSize: Int?
         
         public init(xmlApi2: XMLApi2,
              ids: [String],
-             types: [ItemKind],
+             types: [ThingItem.Kind],
              options: XMLApi2.ThingOptions,
              page: Int?,
              pageSize: Int?) {
@@ -57,7 +57,7 @@ public extension XMLApi2 {
     @available(iOS 13.0, *)
     @available(OSX 10.15, *)
     func thingPublisher(ids: [String],
-                        types: [ItemKind] = [.boardgame],
+                        types: [ThingItem.Kind] = [.boardgame],
                         options: ThingOptions = [],
                         page pageOrNil: Int? = nil,
                         pageSize pageSizeOrNil: Int? = nil) -> ThingPublisher {
@@ -80,7 +80,7 @@ private extension XMLApi2 {
         
         private let xmlApi2: XMLApi2
         private let ids: [String]
-        private let types: [ItemKind]
+        private let types: [ThingItem.Kind]
         private let options: XMLApi2.ThingOptions
         private let page: Int?
         private let pageSize: Int?
@@ -88,7 +88,7 @@ private extension XMLApi2 {
 
         init(xmlApi2: XMLApi2,
              ids: [String],
-             types: [ItemKind],
+             types: [ThingItem.Kind],
              options: XMLApi2.ThingOptions,
              page: Int?,
              pageSize: Int?,

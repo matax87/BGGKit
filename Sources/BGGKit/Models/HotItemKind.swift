@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum ItemKind: String, CaseIterable {
+public enum HotItemKind: String, CaseIterable {
     case boardgame = "boardgame"
     case rpg = "rpg"
     case videogame = "videogame"
