@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct ThingItem {
+public struct ThingItem: PublishedItem {
     public let id: String
     public let names: [(NameKind, String)]
     public let thumbnail: URL?
