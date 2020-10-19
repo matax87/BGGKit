@@ -28,6 +28,7 @@ public extension XMLApi2 {
                                                type: type,
                                                target: subscriber)
             subscriber.receive(subscription: subscription)
+            subscription.call()
         }
     }
 }
@@ -54,7 +55,6 @@ private extension XMLApi2 {
             self.xmlApi2 = xmlApi2
             self.type = type
             self.target = target
-            call()
         }
 
         func request(_: Subscribers.Demand) {
