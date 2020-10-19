@@ -37,6 +37,7 @@ public extension XMLApi2 {
                                                   types: types,
                                                   target: subscriber)
             subscriber.receive(subscription: subscription)
+            subscription.call()
         }
     }
 }
@@ -74,7 +75,6 @@ private extension XMLApi2 {
             self.matchExactly = matchExactly
             self.types = types
             self.target = target
-            call()
         }
 
         func request(_: Subscribers.Demand) {

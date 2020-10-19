@@ -45,6 +45,7 @@ public extension XMLApi2 {
                                                  pageSize: pageSize,
                                                  target: subscriber)
             subscriber.receive(subscription: subscription)
+            subscription.call()
         }
     }
 }
@@ -92,7 +93,6 @@ private extension XMLApi2 {
             self.page = page
             self.pageSize = pageSize
             self.target = target
-            call()
         }
 
         func request(_: Subscribers.Demand) {
