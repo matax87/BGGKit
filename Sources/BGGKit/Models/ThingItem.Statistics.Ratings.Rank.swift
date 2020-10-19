@@ -22,8 +22,8 @@ public extension ThingItem.Statistics.Ratings.Rank {
     struct Kind: Hashable {
         public let rawValue: String
 
-        static let subtype = Kind(rawValue: "subtype")
-        static let family = Kind(rawValue: "family")
+        public static let subtype = Kind(rawValue: "subtype")
+        public static let family = Kind(rawValue: "family")
     }
 }
 
@@ -31,14 +31,14 @@ public extension ThingItem.Statistics.Ratings.Rank {
     struct Name: Hashable {
         public let rawValue: String
 
-        static let boardgame = Name(rawValue: "boardgame")
-        static let abstracts = Name(rawValue: "abstracts")
-        static let cgs = Name(rawValue: "cgs")
-        static let childrensGames = Name(rawValue: "childrensgames")
-        static let familyGames = Name(rawValue: "familygames")
-        static let partyGames = Name(rawValue: "partygames")
-        static let strategyGames = Name(rawValue: "strategygames")
-        static let thematic = Name(rawValue: "thematic")
-        static let wargames = Name(rawValue: "wargames")
+        public static let boardgame = Name(rawValue: "boardgame")
+        public static let abstracts = Name(rawValue: "abstracts")
+        public static let cgs = Name(rawValue: "cgs")
+        public static let childrensGames = Name(rawValue: "childrensgames")
+        public static let familyGames = Name(rawValue: "familygames")
+        public static let partyGames = Name(rawValue: "partygames")
+        public static let strategyGames = Name(rawValue: "strategygames")
+        public static let thematic = Name(rawValue: "thematic")
+        public static let wargames = Name(rawValue: "wargames")
     }
 }
