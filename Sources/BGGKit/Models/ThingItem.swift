@@ -8,6 +8,35 @@
 import Foundation
 
 public struct ThingItem: PublishedItem {
+    public init(id: String,
+                names: [(NameKind, String)],
+                thumbnail: URL?, image: URL?,
+                type: ThingItem.Kind,
+                description: String,
+                yearPublished: Int?,
+                minPlayers: Int,
+                maxPlayers: Int,
+                playingTime: Int,
+                minPlayTime: Int,
+                maxPlayTime: Int,
+                minAge: Int,
+                statistics: ThingItem.Statistics?) {
+        self.id = id
+        self.names = names
+        self.thumbnail = thumbnail
+        self.image = image
+        self.type = type
+        self.description = description
+        self.yearPublished = yearPublished
+        self.minPlayers = minPlayers
+        self.maxPlayers = maxPlayers
+        self.playingTime = playingTime
+        self.minPlayTime = minPlayTime
+        self.maxPlayTime = maxPlayTime
+        self.minAge = minAge
+        self.statistics = statistics
+    }
+
     public let id: String
     public let names: [(NameKind, String)]
     public let thumbnail: URL?

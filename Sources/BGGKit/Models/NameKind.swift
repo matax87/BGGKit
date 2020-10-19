@@ -10,6 +10,6 @@ import Foundation
 public struct NameKind: Hashable {
     public let rawValue: String
 
-    static let primary = NameKind(rawValue: "primary")
-    static let alternate = NameKind(rawValue: "alternate")
+    public static let primary = NameKind(rawValue: "primary")
+    public static let alternate = NameKind(rawValue: "alternate")
 }
