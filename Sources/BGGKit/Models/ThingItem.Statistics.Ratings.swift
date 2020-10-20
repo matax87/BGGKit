@@ -9,18 +9,18 @@ import Foundation
 
 public extension ThingItem.Statistics {
     struct Ratings {
-        let usersRated: Int
-        let average: Double
-        let bayesAverage: Double
-        let ranks: [Rank]
-        let stddev: Double
-        let median: Double
-        let owned: Int
-        let trading: Int
-        let wanting: Int
-        let wishing: Int
-        let numberOfComments: Int
-        let numberOfWeights: Int
-        let averageWeight: Double
+        public let usersRated: Int
+        public let average: Double
+        public let bayesAverage: Double
+        public let ranks: [Rank]
+        public let stddev: Double
+        public let median: Double
+        public let owned: Int
+        public let trading: Int
+        public let wanting: Int
+        public let wishing: Int
+        public let numberOfComments: Int
+        public let numberOfWeights: Int
+        public let averageWeight: Double
     }
 }
