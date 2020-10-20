@@ -13,8 +13,8 @@ public extension ThingItem.Statistics.Ratings {
         let id: String
         let name: Name
         let friendlyName: String
-        let value: Int
-        let bayesAverage: Double
+        let value: Int?
+        let bayesAverage: Double?
     }
 }
 

@@ -14,8 +14,8 @@ internal final class RankParser: NSObject, NodeParser {
     var id: String!
     var name: ThingItem.Statistics.Ratings.Rank.Name!
     var friendlyName: String!
-    var value: Int!
-    var bayesAverage: Double!
+    var value: Int?
+    var bayesAverage: Double?
 
     var delegateStack: ParserDelegateStack?
     var result: ThingItem.Statistics.Ratings.Rank?
