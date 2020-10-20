@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+  <item type="boardgame" id="317321">
+    <thumbnail>https://cf.geekdo-images.com/k_JONJZe2vumR0FLCaiExQ__thumb/img/uCN9za7i94EyOXPtmuYcdWaGkXA=/fit-in/200x150/filters:strip_icc()/pic5634524.png</thumbnail>
+    <image>https://cf.geekdo-images.com/k_JONJZe2vumR0FLCaiExQ__original/img/1tkLYk0-2qdm1uLbbsyE25RGA1M=/0x0/pic5634524.png</image>
+    <name type="primary" sortindex="1" value="Darkest Dungeon: The Board Game" />
+    <description>&amp;ldquo;Ruin has come to our family.&amp;rdquo;&amp;#10;&amp;#10;In this adaptation of Red Hook&amp;rsquo;s acclaimed Darkest Dungeon video game, you strive to cleanse a manor and its surroundings of all manner of evil: hordes of the undead, foul beasts and eldritch abominations... And, finally, either at death&amp;rsquo;s door or at your wit&amp;rsquo;s end, you will have to uproot evil itself from the darkest dungeon.&amp;#10;&amp;#10;Darkest Dungeon is a fully cooperative dungeon crawl game in which players take on the role of adventurers. Although brave and determined, adventurers are only human! They are prone to the madness and pain the twisted dwellers of the dungeons will inflict upon them. Death can occur, but is not the worst fate: heroes can be driven mad and beyond help!&amp;#10;&amp;#10;The game is played in campaigns of 11 missions. To reach the Darkest Dungeon itself, players will undertake 3 missions per threat level and vanquish the boss. Then, they will be strong enough and face the horrors of the Darkest Dungeon! They may emerge victorious... if they dispatch the source of evil that plagues the land.&amp;#10;&amp;#10;For each hero, select 3 skills out of 7 before heading into your mission (and level the heroes up to gain access to more skills). In each room, pick the most suitable stance to best resolve the conflict! Then, on each turn, a player chooses two of the available actions of moving, interacting with the environment, changing their stance or using a skill (if eligible for their current stance). Triumph over encounters, resist rampant madness and emerge victorious before throwing yourself into another battle. Between missions, spend your time in the hamlet, visiting various buildings to find relief from the physical and mental trauma you&amp;rsquo;ve just endured. Restore the hamlet to its former glory and it will reward you and help you to fulfill the ultimate goal.&amp;#10;&amp;#10;</description>
+    <yearpublished value="2021" />
+    <minplayers value="1" />
+    <maxplayers value="4" />
+    <poll name="suggested_numplayers" title="User Suggested Number of Players" totalvotes="0">
+      <results numplayers="1">
+        <result value="Best" numvotes="0" />
+        <result value="Recommended" numvotes="0" />
+        <result value="Not Recommended" numvotes="0" />
+      </results>
+      <results numplayers="2">
+        <result value="Best" numvotes="0" />
+        <result value="Recommended" numvotes="0" />
+        <result value="Not Recommended" numvotes="0" />
+      </results>
+      <results numplayers="3">
+        <result value="Best" numvotes="0" />
+        <result value="Recommended" numvotes="0" />
+        <result value="Not Recommended" numvotes="0" />
+      </results>
+      <results numplayers="4">
+        <result value="Best" numvotes="0" />
+        <result value="Recommended" numvotes="0" />
+        <result value="Not Recommended" numvotes="0" />
+      </results>
+      <results numplayers="4+">
+        <result value="Best" numvotes="0" />
+        <result value="Recommended" numvotes="0" />
+        <result value="Not Recommended" numvotes="0" />
+      </results>
+    </poll>
+    <playingtime value="120" />
+    <minplaytime value="90" />
+    <maxplaytime value="120" />
+    <minage value="14" />
+    <poll name="suggested_playerage" title="User Suggested Player Age" totalvotes="0">
+      <results>
+        <result value="2" numvotes="0" />
+        <result value="3" numvotes="0" />
+        <result value="4" numvotes="0" />
+        <result value="5" numvotes="0" />
+        <result value="6" numvotes="0" />
+        <result value="8" numvotes="0" />
+        <result value="10" numvotes="0" />
+        <result value="12" numvotes="0" />
+        <result value="14" numvotes="0" />
+        <result value="16" numvotes="0" />
+        <result value="18" numvotes="0" />
+        <result value="21 and up" numvotes="0" />
+      </results>
+    </poll>
+    <poll name="language_dependence" title="Language Dependence" totalvotes="0">
+      <results>
+        <result level="1" value="No necessary in-game text" numvotes="0" />
+        <result level="2" value="Some necessary text - easily memorized or small crib sheet" numvotes="0" />
+        <result level="3" value="Moderate in-game text - needs crib sheet or paste ups" numvotes="0" />
+        <result level="4" value="Extensive use of text - massive conversion needed to be playable" numvotes="0" />
+        <result level="5" value="Unplayable in another language" numvotes="0" />
+      </results>
+    </poll>
+    <link type="boardgamecategory" id="1020" value="Exploration" />
+    <link type="boardgamecategory" id="1010" value="Fantasy" />
+    <link type="boardgamecategory" id="1101" value="Video Game Theme" />
+    <link type="boardgamemechanic" id="2023" value="Cooperative Game" />
+    <link type="boardgamemechanic" id="2028" value="Role Playing" />
+    <link type="boardgamefamily" id="22184" value="Admin: Unreleased Games" />
+    <link type="boardgamefamily" id="8374" value="Crowdfunding: Kickstarter" />
+    <link type="boardgamedesigner" id="125134" value="Nick Niotis" />
+    <link type="boardgamedesigner" id="113356" value="Argyris Pouggouras" />
+    <link type="boardgameartist" id="36413" value="Christopher Bourassa" />
+    <link type="boardgamepublisher" id="33579" value="Mythic Games" />
+    <statistics page="1">
+      <ratings >
+        <usersrated value="22" />
+        <average value="7.40909" />
+        <bayesaverage value="0" />
+        <ranks>
+          <rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="Not Ranked" bayesaverage="Not Ranked" />
+        </ranks>
+        <stddev value="3.56318" />
+        <median value="0" />
+        <owned value="2" />
+        <trading value="0" />
+        <wanting value="21" />
+        <wishing value="384" />
+        <numcomments value="11" />
+        <numweights value="0" />
+        <averageweight value="0" />
+      </ratings>
+    </statistics>
+  </item>
+</items>

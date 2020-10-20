@@ -12,6 +12,7 @@ final class ThingItemsParserTests: XCTestCase {
     static var allTests = [
         ("testParsingWithoutStatistic", testParsingWithoutStatistic),
         ("testParsingWithStatistic", testParsingWithStatistic),
+        ("testParsingWithStatisticNotRanked", testParsingWithStatisticNotRanked)
     ]
 
     func testParsingWithoutStatistic() {
@@ -34,6 +35,7 @@ final class ThingItemsParserTests: XCTestCase {
                 XCTAssertEqual(item.type, .boardgame)
                 XCTAssertEqual(item.thumbnail, URL(string: "https://cf.geekdo-images.com/thumb/img/8a9HeqFydO7Uun_le9bXWPnidcA=/fit-in/200x150/filters:strip_icc()/pic2419375.jpg")!)
                 XCTAssertEqual(item.image, URL(string: "https://cf.geekdo-images.com/original/img/A-0yDJkve0avEicYQ4HoNO-HkK8=/0x0/pic2419375.jpg")!)
+                XCTAssertEqual(item.yearPublished, 1995)
                 XCTAssertFalse(item.description.isEmpty)
                 XCTAssertEqual(item.minPlayers, 3)
                 XCTAssertEqual(item.maxPlayers, 4)
@@ -69,6 +71,7 @@ final class ThingItemsParserTests: XCTestCase {
                 XCTAssertEqual(item.type, .boardgame)
                 XCTAssertEqual(item.thumbnail, URL(string: "https://cf.geekdo-images.com/thumb/img/8a9HeqFydO7Uun_le9bXWPnidcA=/fit-in/200x150/filters:strip_icc()/pic2419375.jpg")!)
                 XCTAssertEqual(item.image, URL(string: "https://cf.geekdo-images.com/original/img/A-0yDJkve0avEicYQ4HoNO-HkK8=/0x0/pic2419375.jpg")!)
+                XCTAssertEqual(item.yearPublished, 1995)
                 XCTAssertFalse(item.description.isEmpty)
                 XCTAssertEqual(item.minPlayers, 3)
                 XCTAssertEqual(item.maxPlayers, 4)
@@ -112,6 +115,64 @@ final class ThingItemsParserTests: XCTestCase {
                 XCTAssertEqual(ratings.ranks[2].friendlyName, "Family Game Rank")
                 XCTAssertEqual(ratings.ranks[2].value, 109)
                 XCTAssertEqual(ratings.ranks[2].bayesAverage, 6.94273)
+            } catch {
+                XCTFail()
+            }
+        }
+        wait(for: [expectation], timeout: 3.0)
+    }
+
+    func testParsingWithStatisticNotRanked() {
+        let xmlFileUrl = Bundle.module.url(forResource: "thingItems3",
+                                           withExtension: "xml")!
+        let xmlData = try! Data(contentsOf: xmlFileUrl)
+        let parser = ThingItemsParser(xmlData: xmlData)
+        let expectation = XCTestExpectation(description: "Parse BGG Thing Items")
+        parser.parse { result in
+            do {
+                defer {
+                    expectation.fulfill()
+                }
+                let items = try result.get()
+                XCTAssertEqual(items.count, 1)
+
+                let item = try XCTUnwrap(items.first)
+                XCTAssertEqual(item.id, "317321")
+                XCTAssertEqual(item.name, "Darkest Dungeon: The Board Game")
+                XCTAssertEqual(item.type, .boardgame)
+                XCTAssertEqual(item.thumbnail, URL(string: "https://cf.geekdo-images.com/k_JONJZe2vumR0FLCaiExQ__thumb/img/uCN9za7i94EyOXPtmuYcdWaGkXA=/fit-in/200x150/filters:strip_icc()/pic5634524.png")!)
+                XCTAssertEqual(item.image, URL(string: "https://cf.geekdo-images.com/k_JONJZe2vumR0FLCaiExQ__original/img/1tkLYk0-2qdm1uLbbsyE25RGA1M=/0x0/pic5634524.png")!)
+                XCTAssertFalse(item.description.isEmpty)
+                XCTAssertEqual(item.minPlayers, 1)
+                XCTAssertEqual(item.maxPlayers, 4)
+                XCTAssertEqual(item.playingTime, 120)
+                XCTAssertEqual(item.minPlayTime, 90)
+                XCTAssertEqual(item.maxPlayTime, 120)
+                XCTAssertEqual(item.minAge, 14)
+
+                let statistics = try XCTUnwrap(item.statistics)
+                XCTAssertEqual(statistics.page, 1)
+
+                let ratings = statistics.ratings
+                XCTAssertEqual(ratings.usersRated, 22)
+                XCTAssertEqual(ratings.average, 7.40909)
+                XCTAssertEqual(ratings.bayesAverage, 0)
+                XCTAssertEqual(ratings.stddev, 3.56318)
+                XCTAssertEqual(ratings.median, 0)
+                XCTAssertEqual(ratings.owned, 2)
+                XCTAssertEqual(ratings.trading, 0)
+                XCTAssertEqual(ratings.wanting, 21)
+                XCTAssertEqual(ratings.wishing, 384)
+                XCTAssertEqual(ratings.numberOfComments, 11)
+                XCTAssertEqual(ratings.numberOfWeights, 0)
+                XCTAssertEqual(ratings.averageWeight, 0)
+                XCTAssertEqual(ratings.ranks.count, 1)
+                XCTAssertEqual(ratings.ranks[0].id, "1")
+                XCTAssertEqual(ratings.ranks[0].type, .subtype)
+                XCTAssertEqual(ratings.ranks[0].name, .boardgame)
+                XCTAssertEqual(ratings.ranks[0].friendlyName, "Board Game Rank")
+                XCTAssertNil(ratings.ranks[0].value)
+                XCTAssertNil(ratings.ranks[0].bayesAverage)
             } catch {
                 XCTFail()
             }
