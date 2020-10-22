@@ -9,12 +9,26 @@ import Foundation
 
 public extension ThingItem.Statistics.Ratings {
     struct Rank {
-        let type: Kind
-        let id: String
-        let name: Name
-        let friendlyName: String
-        let value: Int?
-        let bayesAverage: Double?
+        public init(type: ThingItem.Statistics.Ratings.Rank.Kind,
+                    id: String,
+                    name: ThingItem.Statistics.Ratings.Rank.Name,
+                    friendlyName: String,
+                    value: Int?,
+                    bayesAverage: Double?) {
+            self.type = type
+            self.id = id
+            self.name = name
+            self.friendlyName = friendlyName
+            self.value = value
+            self.bayesAverage = bayesAverage
+        }
+
+        public let type: Kind
+        public let id: String
+        public let name: Name
+        public let friendlyName: String
+        public let value: Int?
+        public let bayesAverage: Double?
     }
 }
 
