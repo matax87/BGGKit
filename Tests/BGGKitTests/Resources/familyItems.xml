@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+    <item type="boardgamefamily" id="1">
+        <thumbnail>https://cf.geekdo-images.com/AKJnFj40lhCRU-T5WpQigw__thumb/img/8Td1xqSG6RqZ6PoijvQL0q5sCWY=/fit-in/200x150/filters:strip_icc()/pic1246781.jpg</thumbnail>
+        <image>https://cf.geekdo-images.com/AKJnFj40lhCRU-T5WpQigw__original/img/2p1Kn54uXswvhkuoAzLDruE4J_4=/0x0/filters:format(jpeg)/pic1246781.jpg</image>
+        <name type="primary" sortindex="1" value="Test Family" />
+        <name type="alternate" sortindex="1" value="Another Test Family" />
+        <description>This is a test.&amp;#10;&amp;#10;</description>
+        <link type="boardgamefamily" id="41047" value="Admin Test Item" inbound="true"/>
+    </item>
+    <item type="boardgamefamily" id="2">
+        <thumbnail>https://cf.geekdo-images.com/c_pg0WfJKn7_P33AsDS5EA__thumb/img/8RgZmSChaxESGjIdhMeIg0C9OZk=/fit-in/200x150/filters:strip_icc()/pic453826.jpg</thumbnail>
+        <image>https://cf.geekdo-images.com/c_pg0WfJKn7_P33AsDS5EA__original/img/k2t0IHkPo0nzLadfSxXhtAzyU5I=/0x0/filters:format(jpeg)/pic453826.jpg</image>
+        <name type="primary" sortindex="1" value="Game: Carcassonne" />
+        <name type="alternate" sortindex="1" value="Carcassonne: Solo-Variante" />
+        <description>Games (expansions, promos, etc.) in the &amp;quot;Carcassonne&amp;quot; family of games, published by Hans im Gl&amp;#195;&amp;#188;ck.&amp;#10;&amp;#10;&amp;#10;See this Carcassonne Series wiki for more details.&amp;#10;&amp;#10;</description>
+        <link type="boardgamefamily" id="188334" value="999 Games trakteert!" inbound="true"/>
+        <link type="boardgamefamily" id="6779" value="The Ark of the Covenant" inbound="true"/>
+        <link type="boardgamefamily" id="302315" value="The Big Black Pig Escape (Fan expansion to Carcassonne)" inbound="true"/>
+        <link type="boardgamefamily" id="822" value="Carcassonne" inbound="true"/>
+        <link type="boardgamefamily" id="142057" value="Carcassonne Big Box" inbound="true"/>
+        <link type="boardgamefamily" id="141008" value="Carcassonne Big Box 2" inbound="true"/>
+        <link type="boardgamefamily" id="141007" value="Carcassonne Big Box 3" inbound="true"/>
+        <link type="boardgamefamily" id="140711" value="Carcassonne Big Box 4" inbound="true"/>
+        <link type="boardgamefamily" id="164127" value="Carcassonne Big Box 5" inbound="true"/>
+        <link type="boardgamefamily" id="230914" value="Carcassonne Big Box 6" inbound="true"/>
+        <link type="boardgamefamily" id="137492" value="Carcassonne Demo" inbound="true"/>
+        <link type="boardgamefamily" id="230751" value="Carcassonne für 2" inbound="true"/>
+        <link type="boardgamefamily" id="161729" value="Carcassonne inklusive Händler &amp; Baumeister" inbound="true"/>
+        <link type="boardgamefamily" id="41010" value="Carcassonne Junior" inbound="true"/>
+        <link type="boardgamefamily" id="154094" value="Carcassonne Limited Edition" inbound="true"/>
+        <link type="boardgamefamily" id="291514" value="Carcassonne Maps: Benelux" inbound="true"/>
+        <link type="boardgamefamily" id="291518" value="Carcassonne Maps: Chips" inbound="true"/>
+        <link type="boardgamefamily" id="276673" value="Carcassonne Maps: Deutschland" inbound="true"/>
+        <link type="boardgamefamily" id="291512" value="Carcassonne Maps: France" inbound="true"/>
+        <link type="boardgamefamily" id="291515" value="Carcassonne Maps: Great Britain" inbound="true"/>
+        <link type="boardgamefamily" id="291516" value="Carcassonne Maps: Península Ibérica" inbound="true"/>
+        <link type="boardgamefamily" id="322457" value="Carcassonne Maps: USA East" inbound="true"/>
+        <link type="boardgamefamily" id="322458" value="Carcassonne Maps: USA West" inbound="true"/>
+        <link type="boardgamefamily" id="147782" value="Carcassonne Müller Exklusiv-Edition" inbound="true"/>
+        <link type="boardgamefamily" id="89952" value="Carcassonne: 10 Year Special Edition" inbound="true"/>
+        <link type="boardgamefamily" id="206940" value="Carcassonne: Amazonas" inbound="true"/>
+        <link type="boardgamefamily" id="167744" value="Carcassonne: Bonusplättchen Spiel 2014" inbound="true"/>
+        <link type="boardgamefamily" id="186143" value="Carcassonne: Bonusplättchen Spiel 2015" inbound="true"/>
+        <link type="boardgamefamily" id="210799" value="Carcassonne: Bonusplättchen Spiel 2016" inbound="true"/>
+        <link type="boardgamefamily" id="238416" value="Carcassonne: Bonusplättchen Spiel 2017" inbound="true"/>
+        <link type="boardgamefamily" id="263941" value="Carcassonne: Bonusplättchen Spiel 2018" inbound="true"/>
+        <link type="boardgamefamily" id="292749" value="Carcassonne: Bonusplättchen Spiel 2019" inbound="true"/>
+        <link type="boardgamefamily" id="321496" value="Carcassonne: Bonusplättchen Spiel 2020" inbound="true"/>
+        <link type="boardgamefamily" id="175653" value="Carcassonne: Castles in Germany" inbound="true"/>
+        <link type="boardgamefamily" id="120686" value="Carcassonne: Corn Circles II" inbound="true"/>
+        <link type="boardgamefamily" id="35666" value="Carcassonne: Cult, Siege &amp; Creativity" inbound="true"/>
+        <link type="boardgamefamily" id="232336" value="Carcassonne: CutCassonne" inbound="true"/>
+        <link type="boardgamefamily" id="168121" value="Carcassonne: Darmstadt" inbound="true"/>
+        <link type="boardgamefamily" id="195771" value="Carcassonne: Das Labyrinth" inbound="true"/>
+        <link type="boardgamefamily" id="183453" value="Carcassonne: Demo-Spiel" inbound="true"/>
+        <link type="boardgamefamily" id="59065" value="Carcassonne: Der Tunnel" inbound="true"/>
+        <link type="boardgamefamily" id="166518" value="Carcassonne: Die Belagerer" inbound="true"/>
+        <link type="boardgamefamily" id="13300" value="Carcassonne: Die Katharer" inbound="true"/>
+        <link type="boardgamefamily" id="67055" value="Carcassonne: Die Kornkreise" inbound="true"/>
+        <link type="boardgamefamily" id="235057" value="Carcassonne: Die Märkte zu Leipzig" inbound="true"/>
+        <link type="boardgamefamily" id="199988" value="Carcassonne: Die Wahrsagerin" inbound="true"/>
+        <link type="boardgamefamily" id="131676" value="Carcassonne: Die Windrosen" inbound="true"/>
+        <link type="boardgamefamily" id="184578" value="Carcassonne: Easter in Carcassonne" inbound="true"/>
+        <link type="boardgamefamily" id="2993" value="Carcassonne: Expansion 1 – Inns &amp; Cathedrals" inbound="true"/>
+        <link type="boardgamefamily" id="217006" value="Carcassonne: Expansion 10 – Under the Big Top" inbound="true"/>
+        <link type="boardgamefamily" id="5405" value="Carcassonne: Expansion 2 – Traders &amp; Builders" inbound="true"/>
+        <link type="boardgamefamily" id="15158" value="Carcassonne: Expansion 3 – The Princess &amp; The Dragon" inbound="true"/>
+        <link type="boardgamefamily" id="21385" value="Carcassonne: Expansion 4 – The Tower" inbound="true"/>
+        <link type="boardgamefamily" id="31784" value="Carcassonne: Expansion 5 – Abbey &amp; Mayor" inbound="true"/>
+        <link type="boardgamefamily" id="33458" value="Carcassonne: Expansion 6 – Count, King &amp; Robber" inbound="true"/>
+        <link type="boardgamefamily" id="38855" value="Carcassonne: Expansion 7 – The Catapult" inbound="true"/>
+        <link type="boardgamefamily" id="66646" value="Carcassonne: Expansion 8 – Bridges, Castles and Bazaars" inbound="true"/>
+        <link type="boardgamefamily" id="153773" value="Carcassonne: Expansion 9 – Hills &amp; Sheep" inbound="true"/>
+        <link type="boardgamefamily" id="196080" value="Carcassonne: German Cathedrals" inbound="true"/>
+        <link type="boardgamefamily" id="163370" value="Carcassonne: Gold Rush" inbound="true"/>
+        <link type="boardgamefamily" id="166052" value="Carcassonne: Halb so wild" inbound="true"/>
+        <link type="boardgamefamily" id="309267" value="Carcassonne: Halb so Wild" inbound="true"/>
+        <link type="boardgamefamily" id="169392" value="Carcassonne: Halb so wild II" inbound="true"/>
+        <link type="boardgamefamily" id="4390" value="Carcassonne: Hunters and Gatherers" inbound="true"/>
+        <link type="boardgamefamily" id="7707" value="Carcassonne: King &amp; Scout" inbound="true"/>
+        <link type="boardgamefamily" id="158041" value="Carcassonne: Klöster in Deutschland" inbound="true"/>
+        <link type="boardgamefamily" id="24506" value="Carcassonne: Kreivi ja Kuningas" inbound="true"/>
+        <link type="boardgamefamily" id="130998" value="Carcassonne: Little Buildings" inbound="true"/>
+        <link type="boardgamefamily" id="118618" value="Carcassonne: Mage &amp; Witch" inbound="true"/>
+        <link type="boardgamefamily" id="215210" value="Carcassonne: Nikolaus-Zählleiste" inbound="true"/>
+        <link type="boardgamefamily" id="182082" value="Carcassonne: Over Hill and Dale" inbound="true"/>
+        <link type="boardgamefamily" id="26615" value="Carcassonne: Promo Tiles" inbound="true"/>
+        <link type="boardgamefamily" id="256065" value="Carcassonne: Safari" inbound="true"/>
+        <link type="boardgamefamily" id="147303" value="Carcassonne: South Seas" inbound="true"/>
+        <link type="boardgamefamily" id="260589" value="Carcassonne: Spiel Doch Mini Expansion" inbound="true"/>
+        <link type="boardgamefamily" id="180564" value="Carcassonne: Star Wars" inbound="true"/>
+        <link type="boardgamefamily" id="149901" value="Carcassonne: Südsee – Freitag" inbound="true"/>
+        <link type="boardgamefamily" id="262563" value="Carcassonne: The Barber-Surgeons" inbound="true"/>
+        <link type="boardgamefamily" id="7717" value="Carcassonne: The Castle" inbound="true"/>
+        <link type="boardgamefamily" id="114473" value="Carcassonne: The Castle – Falcon Expansion" inbound="true"/>
+        <link type="boardgamefamily" id="12902" value="Carcassonne: The City" inbound="true"/>
+        <link type="boardgamefamily" id="179919" value="Carcassonne: The City Gates" inbound="true"/>
+        <link type="boardgamefamily" id="12903" value="Carcassonne: The Count of Carcassonne" inbound="true"/>
+        <link type="boardgamefamily" id="38431" value="Carcassonne: The Cult" inbound="true"/>
+        <link type="boardgamefamily" id="89953" value="Carcassonne: The Dice Game" inbound="true"/>
+        <link type="boardgamefamily" id="16216" value="Carcassonne: The Discovery" inbound="true"/>
+        <link type="boardgamefamily" id="118614" value="Carcassonne: The Ferries" inbound="true"/>
+        <link type="boardgamefamily" id="123905" value="Carcassonne: The Festival" inbound="true"/>
+        <link type="boardgamefamily" id="118615" value="Carcassonne: The Flying Machines" inbound="true"/>
+        <link type="boardgamefamily" id="248979" value="Carcassonne: The Fruit-Bearing Trees" inbound="true"/>
+        <link type="boardgamefamily" id="118617" value="Carcassonne: The Gold Mines" inbound="true"/>
+        <link type="boardgamefamily" id="308636" value="Carcassonne: The Land Surveyors" inbound="true"/>
+        <link type="boardgamefamily" id="118619" value="Carcassonne: The Messengers" inbound="true"/>
+        <link type="boardgamefamily" id="324940" value="Carcassonne: The Peasant Revolts" inbound="true"/>
+        <link type="boardgamefamily" id="92332" value="Carcassonne: The Phantom" inbound="true"/>
+        <link type="boardgamefamily" id="85003" value="Carcassonne: The Plague" inbound="true"/>
+        <link type="boardgamefamily" id="2591" value="Carcassonne: The River" inbound="true"/>
+        <link type="boardgamefamily" id="18836" value="Carcassonne: The River II" inbound="true"/>
+        <link type="boardgamefamily" id="118616" value="Carcassonne: The Robbers" inbound="true"/>
+        <link type="boardgamefamily" id="104634" value="Carcassonne: The School" inbound="true"/>
+        <link type="boardgamefamily" id="291517" value="Carcassonne: The Tollkeepers" inbound="true"/>
+        <link type="boardgamefamily" id="211023" value="Carcassonne: Watchtowers" inbound="true"/>
+        <link type="boardgamefamily" id="45748" value="Carcassonne: Wheel of Fortune" inbound="true"/>
+        <link type="boardgamefamily" id="131014" value="Carcassonne: Winter Edition" inbound="true"/>
+        <link type="boardgamefamily" id="132021" value="Carcassonne: Winter-Edition – Der Lebkuchenmann" inbound="true"/>
+        <link type="boardgamefamily" id="190551" value="Carcassonne: Winter-Edition – Die Kornkreise" inbound="true"/>
+        <link type="boardgamefamily" id="58798" value="Cardcassonne" inbound="true"/>
+        <link type="boardgamefamily" id="320469" value="Circles in the Forest (fan expansion for Carcassonne)" inbound="true"/>
+        <link type="boardgamefamily" id="320439" value="The Coast (fan expansion for Carcassonne)" inbound="true"/>
+        <link type="boardgamefamily" id="248791" value="Corn Circles 3 (fan expansion to Carcassonne)" inbound="true"/>
+        <link type="boardgamefamily" id="320437" value="Divided Cities (fan expansion for Carcassonne)" inbound="true"/>
+        <link type="boardgamefamily" id="301201" value="El Grande &amp; Carcassonne" inbound="true"/>
+        <link type="boardgamefamily" id="269002" value="Kar-kas-onn" inbound="true"/>
+        <link type="boardgamefamily" id="316394" value="Lakelands (fan expansion for Carcassonne)" inbound="true"/>
+        <link type="boardgamefamily" id="323386" value="The Land Surveyors 2 (fan expansion for Carcassonne)" inbound="true"/>
+        <link type="boardgamefamily" id="196280" value="Merchants (fan expansion for Carcassonne: Traders &amp; Builders)" inbound="true"/>
+        <link type="boardgamefamily" id="116767" value="Mondo-Carcassonne" inbound="true"/>
+        <link type="boardgamefamily" id="289733" value="The Mount of the Duke (fan expansion for Carcassonne)" inbound="true"/>
+        <link type="boardgamefamily" id="34615" value="New World: A Carcassonne Game" inbound="true"/>
+        <link type="boardgamefamily" id="317702" value="River System (fan expansion for Carcassonne)" inbound="true"/>
+        <link type="boardgamefamily" id="30662" value="Travel Carcassonne" inbound="true"/>
+        <link type="boardgamefamily" id="160096" value="Каркассон: Дворяне и Башни" inbound="true"/>
+        <link type="boardgamefamily" id="160500" value="Каркассон: Колесо фортуны" inbound="true"/>
+        <link type="boardgamefamily" id="160094" value="Каркассон: Королевский Подарок" inbound="true"/>
+        <link type="boardgamefamily" id="316344" value="Каркассон: Королевский подарок. Новое издание" inbound="true"/>
+        <link type="boardgamefamily" id="211659" value="Каркассон: Наука и магия" inbound="true"/>
+        <link type="boardgamefamily" id="160095" value="Каркассон: Предместья и обитатели" inbound="true"/>
+        <link type="boardgamefamily" id="215144" value="Каркассон: Солове́й-Разбо́йник &amp; Водяной" inbound="true"/>
+        <link type="boardgamefamily" id="177728" value="Каркассон: тайл Избушка" inbound="true"/>
+    </item>
+</items>
