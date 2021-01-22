@@ -110,6 +110,22 @@ public extension XMLApi2 {
             }
         }
     }
+
+    func thing(id: String,
+               types: [ThingItem.Kind] = [.boardgame],
+               options: ThingOptions = [],
+               page pageOrNil: Int? = nil,
+               pageSize pageSizeOrNil: Int? = nil,
+               resultQueue: DispatchQueue = .main,
+               completion completionHandler: @escaping AsyncCollectionResult<ThingItem>) {
+        thing(ids: [id],
+              types: types,
+              options: options,
+              page: pageOrNil,
+              pageSize: pageSizeOrNil,
+              resultQueue: resultQueue,
+              completion: completionHandler)
+    }
 }
 
 // MARK: Family Items API
@@ -140,6 +156,16 @@ public extension XMLApi2 {
                 }
             }
         }
+    }
+
+    func family(id: String,
+                types: [String] = [],
+                resultQueue: DispatchQueue = .main,
+                completion completionHandler: @escaping AsyncCollectionResult<FamilyItem>) {
+        family(ids: [id],
+               types: types,
+               resultQueue: resultQueue,
+               completion: completionHandler)
     }
 }
 

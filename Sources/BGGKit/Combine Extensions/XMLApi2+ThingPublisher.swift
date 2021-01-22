@@ -65,6 +65,20 @@ public extension XMLApi2 {
                               page: pageOrNil,
                               pageSize: pageSizeOrNil)
     }
+
+    @available(iOS 13.0, *)
+    @available(OSX 10.15, *)
+    func thingPublisher(id: String,
+                        types: [ThingItem.Kind] = [.boardgame],
+                        options: ThingOptions = [],
+                        page pageOrNil: Int? = nil,
+                        pageSize pageSizeOrNil: Int? = nil) -> ThingPublisher {
+        thingPublisher(ids: [id],
+                       types: types,
+                       options: options,
+                       page: pageOrNil,
+                       pageSize: pageSizeOrNil)
+    }
 }
 
 private extension XMLApi2 {
