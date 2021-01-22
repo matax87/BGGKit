@@ -40,7 +40,7 @@ public final class XMLApi2 {
     }
 }
 
-// MARK: Thing API
+// MARK: Thing Items API
 
 public extension XMLApi2 {
     struct ThingOptions: OptionSet {
@@ -101,6 +101,37 @@ public extension XMLApi2 {
                 let xmlData = try result.get()
                 let parser = ThingItemsParser(xmlData: xmlData,
                                               queue: self.queue)
+                parser.parse(resultQueue: resultQueue,
+                             completion: completionHandler)
+            } catch {
+                resultQueue.async {
+                    completionHandler(.failure(error))
+                }
+            }
+        }
+    }
+}
+
+// MARK: Family Items API
+
+public extension XMLApi2 {
+    func family(ids: [String],
+                types: [String] = [],
+                resultQueue: DispatchQueue = .main,
+                completion completionHandler: @escaping AsyncCollectionResult<FamilyItem>) {
+        let queryParameters: [QueryParameter] = [
+            (name: "id", value: ids.joined(separator: ",")),
+            (name: "type", value: types.joined(separator: ","))
+        ]
+        call(endpoint: "family",
+             queryParameters: queryParameters) { [weak self] result in
+            guard let self = self
+            else { return }
+
+            do {
+                let xmlData = try result.get()
+                let parser = FamilyItemsParser(xmlData: xmlData,
+                                               queue: self.queue)
                 parser.parse(resultQueue: resultQueue,
                              completion: completionHandler)
             } catch {

@@ -10,9 +10,46 @@ import XCTest
 
 final class XMLApi2Tests: XCTestCase {
     static var allTests = [
+        ("testThing", testThing),
         ("testHot", testHot),
-        ("testSearch", testSearch),
+        ("testSearch", testSearch)
     ]
+
+    func testThing() {
+        let xmlApi2 = XMLApi2()
+        let expectation = XCTestExpectation(description: "BGG Thing")
+        let ids = ["1", "2"]
+        xmlApi2.thing(ids: ids) { result in
+            do {
+                let items = try result.get()
+                XCTAssertTrue(items.count == ids.count)
+                XCTAssertEqual(items[0].id, ids[0])
+                XCTAssertEqual(items[1].id, ids[1])
+                expectation.fulfill()
+            } catch {
+                XCTFail()
+            }
+        }
+        wait(for: [expectation], timeout: 3.0)
+    }
+
+    func testFamily() {
+        let xmlApi2 = XMLApi2()
+        let expectation = XCTestExpectation(description: "BGG Family")
+        let ids = ["1", "2"]
+        xmlApi2.family(ids: ids) { result in
+            do {
+                let items = try result.get()
+                XCTAssertTrue(items.count == ids.count)
+                XCTAssertEqual(items[0].id, ids[0])
+                XCTAssertEqual(items[1].id, ids[1])
+                expectation.fulfill()
+            } catch {
+                XCTFail()
+            }
+        }
+        wait(for: [expectation], timeout: 3.0)
+    }
 
     func testHot() {
         let xmlApi2 = XMLApi2()
@@ -36,24 +73,6 @@ final class XMLApi2Tests: XCTestCase {
             do {
                 let items = try result.get()
                 XCTAssertFalse(items.isEmpty)
-                expectation.fulfill()
-            } catch {
-                XCTFail()
-            }
-        }
-        wait(for: [expectation], timeout: 3.0)
-    }
-
-    func testThing() {
-        let xmlApi2 = XMLApi2()
-        let expectation = XCTestExpectation(description: "BGG Thing")
-        let ids = ["1", "2"]
-        xmlApi2.thing(ids: ids) { result in
-            do {
-                let items = try result.get()
-                XCTAssertTrue(items.count == ids.count)
-                XCTAssertEqual(items[0].id, ids[0])
-                XCTAssertEqual(items[1].id, ids[1])
                 expectation.fulfill()
             } catch {
                 XCTFail()
