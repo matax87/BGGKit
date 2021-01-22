@@ -1,8 +1,8 @@
 //
-//  XMLApi2+SearchPublisher.swift
+//  XMLApi2+FamilyPublisher.swift
 //  BGGKit
 //
-//  Created by Matteo Matassoni on 06/10/2020.
+//  Created by Matteo Matassoni on 07/10/2020.
 //
 
 import Combine
@@ -11,29 +11,25 @@ import Foundation
 public extension XMLApi2 {
     @available(iOS 13.0, *)
     @available(OSX 10.15, *)
-    struct SearchPublisher: Publisher {
-        public typealias Output = [SearchItem]
+    struct FamilyPublisher: Publisher {
+        public typealias Output = [FamilyItem]
         public typealias Failure = Error
 
         private let xmlApi2: XMLApi2
-        private let query: String
-        private let matchExactly: Bool
-        private let types: [SearchItem.Kind]
+        private let ids: [String]
+        private let types: [String]
 
         public init(xmlApi2: XMLApi2,
-                    query: String,
-                    matchExactly: Bool,
-                    types: [SearchItem.Kind]) {
+                    ids: [String],
+                    types: [String] = []) {
             self.xmlApi2 = xmlApi2
-            self.query = query
-            self.matchExactly = matchExactly
+            self.ids = ids
             self.types = types
         }
 
         public func receive<S: Subscriber>(subscriber: S) where S.Input == Output, S.Failure == Failure {
-            let subscription = SearchSubscription(xmlApi2: xmlApi2,
-                                                  query: query,
-                                                  matchExactly: matchExactly,
+            let subscription = FamilySubscription(xmlApi2: xmlApi2,
+                                                  ids: ids,
                                                   types: types,
                                                   target: subscriber)
             subscriber.receive(subscription: subscription)
@@ -45,12 +41,19 @@ public extension XMLApi2 {
 public extension XMLApi2 {
     @available(iOS 13.0, *)
     @available(OSX 10.15, *)
-    func searchPublisher(query: String,
-                         matchExactly: Bool = false,
-                         types: [SearchItem.Kind] = [.boardgame]) -> SearchPublisher {
-        return SearchPublisher(xmlApi2: self,
-                               query: query,
-                               matchExactly: matchExactly,
+    func familyPublisher(ids: [String],
+                         types: [String] = []) -> FamilyPublisher {
+        return FamilyPublisher(xmlApi2: self,
+                               ids: ids,
+                               types: types)
+    }
+
+    @available(iOS 13.0, *)
+    @available(OSX 10.15, *)
+    func familyPublisher(id: String,
+                         types: [String] = []) -> FamilyPublisher {
+        return FamilyPublisher(xmlApi2: self,
+                               ids: [id],
                                types: types)
     }
 }
@@ -58,21 +61,18 @@ public extension XMLApi2 {
 private extension XMLApi2 {
     @available(iOS 13.0, *)
     @available(OSX 10.15, *)
-    class SearchSubscription<Target: Subscriber>: Subscription where Target.Input == [SearchItem], Target.Failure == Error {
+    class FamilySubscription<Target: Subscriber>: Subscription where Target.Input == [FamilyItem], Target.Failure == Error {
         private let xmlApi2: XMLApi2
-        private let query: String
-        private let matchExactly: Bool
-        private let types: [SearchItem.Kind]
+        private let ids: [String]
+        private let types: [String]
         private var target: Target?
 
         init(xmlApi2: XMLApi2,
-             query: String,
-             matchExactly: Bool = false,
-             types: [SearchItem.Kind],
+             ids: [String],
+             types: [String] = [],
              target: Target) {
             self.xmlApi2 = xmlApi2
-            self.query = query
-            self.matchExactly = matchExactly
+            self.ids = ids
             self.types = types
             self.target = target
         }
@@ -86,9 +86,7 @@ private extension XMLApi2 {
         }
 
         func call() {
-            xmlApi2.search(query: query,
-                           matchExactly: matchExactly,
-                           types: types) { [weak self] result in
+            xmlApi2.family(ids: ids, types: types) { [weak self] result in
                 do {
                     let items = try result.get()
                     _ = self?.target?.receive(items)

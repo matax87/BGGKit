@@ -1,5 +1,5 @@
 //
-//  XMLApi2+Combine.swift
+//  XMLApi2+ThingPublisher.swift
 //  BGGKit
 //
 //  Created by Matteo Matassoni on 07/10/2020.
