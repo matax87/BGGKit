@@ -9,7 +9,7 @@ import Foundation
 
 public struct ThingItem: PublishedItem {
     public init(id: String,
-                names: [(NameKind, String)],
+                names: [Name],
                 thumbnail: URL?, image: URL?,
                 type: ThingItem.Kind,
                 description: String,
@@ -38,7 +38,7 @@ public struct ThingItem: PublishedItem {
     }
 
     public let id: String
-    public let names: [(NameKind, String)]
+    public let names: [Name]
     public let thumbnail: URL?
     public let image: URL?
     public let type: Kind
@@ -51,8 +51,10 @@ public struct ThingItem: PublishedItem {
     public let maxPlayTime: Int
     public let minAge: Int
     public let statistics: Statistics?
+}
 
-    public var name: String {
-        names.first { $0.0 == .primary }!.1
+public extension ThingItem {
+    var name: String {
+        names.primaryName()!
     }
 }

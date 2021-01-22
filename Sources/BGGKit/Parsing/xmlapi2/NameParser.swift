@@ -11,7 +11,7 @@ internal class NameParser: NSObject, NodeParser {
     private let tagName: String
 
     var delegateStack: ParserDelegateStack?
-    var result: (NameKind, String)?
+    var result: Name?
 
     init(tagName: String) {
         self.tagName = tagName
@@ -19,9 +19,9 @@ internal class NameParser: NSObject, NodeParser {
 
     func parser(_: XMLParser, didStartElement elementName: String, namespaceURI _: String?, qualifiedName _: String?, attributes attributeDict: [String: String] = [:]) {
         if elementName == tagName {
-            if let type = attributeDict["type"].flatMap(NameKind.init),
+            if let kind = attributeDict["type"].flatMap(NameKind.init),
                let value = attributeDict["value"] {
-                result = (type, value)
+                result = Name(kind: kind, value: value)
             }
         }
     }

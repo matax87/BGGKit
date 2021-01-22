@@ -12,7 +12,7 @@ internal final class ThingItemParser: NSObject, NodeParser {
 
     private var id: String!
     private var type: ThingItem.Kind!
-    private var names: [(NameKind, String)] = []
+    private var names: [Name] = []
     private let thumbnailParser = URLElementValueParser(tagName: "thumbnail")
     private let imageParser = URLElementValueParser(tagName: "image")
     private let nameParser = NameParser(tagName: "name")
