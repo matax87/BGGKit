@@ -7,15 +7,23 @@
 
 import Foundation
 
+// MARK: - Types
+
 public typealias AsyncResult<T> = (Result<T, Error>) -> Void
 public typealias AsyncCollectionResult<T> = (Result<[T], Error>) -> Void
+
+// MARK: - NetworkError
 
 public enum NetworkError: Error {
     case invalidResponse(URLResponse)
     case invalidHttpStatus(Int)
 }
 
+// MARK: - XMLApi2
+
 public final class XMLApi2 {
+    // MARK: Private Stored Properties
+
     private let scheme: String
     private let baseUrl: String
     private let queue = DispatchQueue(
@@ -30,10 +38,12 @@ public final class XMLApi2 {
         self.scheme = scheme
         self.baseUrl = baseUrl
     }
+}
 
-    // MARK: Public APIs
+// MARK: Thing API
 
-    public struct ThingOptions: OptionSet {
+public extension XMLApi2 {
+    struct ThingOptions: OptionSet {
         public let rawValue: Int
 
         public init(rawValue: Int) {
@@ -59,13 +69,13 @@ public final class XMLApi2 {
         ]
     }
 
-    public func thing(ids: [String],
-                      types: [ThingItem.Kind] = [.boardgame],
-                      options: ThingOptions = [],
-                      page pageOrNil: Int? = nil,
-                      pageSize pageSizeOrNil: Int? = nil,
-                      resultQueue: DispatchQueue = .main,
-                      completion completionHandler: @escaping AsyncCollectionResult<ThingItem>) {
+    func thing(ids: [String],
+               types: [ThingItem.Kind] = [.boardgame],
+               options: ThingOptions = [],
+               page pageOrNil: Int? = nil,
+               pageSize pageSizeOrNil: Int? = nil,
+               resultQueue: DispatchQueue = .main,
+               completion completionHandler: @escaping AsyncCollectionResult<ThingItem>) {
         let page = pageOrNil.flatMap { max(0, $0) }
         let pageSize = pageSizeOrNil.flatMap { min(100, max(10, $0)) }
         let queryParameters: [QueryParameter] = [
@@ -100,10 +110,14 @@ public final class XMLApi2 {
             }
         }
     }
+}
 
-    public func hot(type: HotItem.Kind = .boardgame,
-                    resultQueue: DispatchQueue = .main,
-                    completion completionHandler: @escaping AsyncCollectionResult<HotItem>) {
+// MARK: Hot APIs
+
+public extension XMLApi2 {
+    func hot(type: HotItem.Kind = .boardgame,
+             resultQueue: DispatchQueue = .main,
+             completion completionHandler: @escaping AsyncCollectionResult<HotItem>) {
         call(endpoint: "hot",
              queryParameters: [(name: "type", value: type.rawValue)]) { [weak self] result in
             guard let self = self
@@ -122,12 +136,16 @@ public final class XMLApi2 {
             }
         }
     }
+}
 
-    public func search(query: String,
-                       matchExactly: Bool = false,
-                       types: [SearchItem.Kind] = [.boardgame],
-                       resultQueue: DispatchQueue = .main,
-                       completion completionHandler: @escaping AsyncCollectionResult<SearchItem>) {
+// MARK: Search APIs
+
+public extension XMLApi2 {
+    func search(query: String,
+                matchExactly: Bool = false,
+                types: [SearchItem.Kind] = [.boardgame],
+                resultQueue: DispatchQueue = .main,
+                completion completionHandler: @escaping AsyncCollectionResult<SearchItem>) {
         call(endpoint: "search",
              queryParameters: [
                  (name: "query", value: query),
