@@ -132,7 +132,7 @@ public extension XMLApi2 {
 
 public extension XMLApi2 {
     func family(ids: [String],
-                types: [String] = [],
+                types: [FamilyItem.Kind] = [],
                 resultQueue: DispatchQueue = .main,
                 completion completionHandler: @escaping AsyncCollectionResult<FamilyItem>) {
         let queryParameters: [QueryParameter] = [
@@ -159,7 +159,7 @@ public extension XMLApi2 {
     }
 
     func family(id: String,
-                types: [String] = [],
+                types: [FamilyItem.Kind] = [],
                 resultQueue: DispatchQueue = .main,
                 completion completionHandler: @escaping AsyncCollectionResult<FamilyItem>) {
         family(ids: [id],
@@ -296,6 +296,12 @@ private extension Collection where Iterator.Element == ThingItem.Kind {
 }
 
 private extension Collection where Iterator.Element == SearchItem.Kind {
+    func joined(separator: String = "") -> String {
+        map { $0.rawValue }.joined(separator: separator)
+    }
+}
+
+private extension Collection where Iterator.Element == FamilyItem.Kind {
     func joined(separator: String = "") -> String {
         map { $0.rawValue }.joined(separator: separator)
     }

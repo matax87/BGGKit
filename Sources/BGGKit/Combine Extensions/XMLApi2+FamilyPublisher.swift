@@ -17,11 +17,11 @@ public extension XMLApi2 {
 
         private let xmlApi2: XMLApi2
         private let ids: [String]
-        private let types: [String]
+        private let types: [FamilyItem.Kind]
 
         public init(xmlApi2: XMLApi2,
                     ids: [String],
-                    types: [String] = []) {
+                    types: [FamilyItem.Kind] = []) {
             self.xmlApi2 = xmlApi2
             self.ids = ids
             self.types = types
@@ -42,7 +42,7 @@ public extension XMLApi2 {
     @available(iOS 13.0, *)
     @available(OSX 10.15, *)
     func familyPublisher(ids: [String],
-                         types: [String] = []) -> FamilyPublisher {
+                         types: [FamilyItem.Kind] = []) -> FamilyPublisher {
         return FamilyPublisher(xmlApi2: self,
                                ids: ids,
                                types: types)
@@ -51,7 +51,7 @@ public extension XMLApi2 {
     @available(iOS 13.0, *)
     @available(OSX 10.15, *)
     func familyPublisher(id: String,
-                         types: [String] = []) -> FamilyPublisher {
+                         types: [FamilyItem.Kind] = []) -> FamilyPublisher {
         return FamilyPublisher(xmlApi2: self,
                                ids: [id],
                                types: types)
@@ -64,12 +64,12 @@ private extension XMLApi2 {
     class FamilySubscription<Target: Subscriber>: Subscription where Target.Input == [FamilyItem], Target.Failure == Error {
         private let xmlApi2: XMLApi2
         private let ids: [String]
-        private let types: [String]
+        private let types: [FamilyItem.Kind]
         private var target: Target?
 
         init(xmlApi2: XMLApi2,
              ids: [String],
-             types: [String] = [],
+             types: [FamilyItem.Kind] = [],
              target: Target) {
             self.xmlApi2 = xmlApi2
             self.ids = ids

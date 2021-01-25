@@ -11,7 +11,7 @@ internal final class FamilyItemParser: NSObject, NodeParser {
     private let tagName: String
 
     private var id: String!
-    private var type: String!
+    private var kind: FamilyItem.Kind!
     private var names: [Name] = []
     private let thumbnailParser = URLElementValueParser(tagName: "thumbnail")
     private let imageParser = URLElementValueParser(tagName: "image")
@@ -33,7 +33,8 @@ internal final class FamilyItemParser: NSObject, NodeParser {
                 attributes attributeDict: [String: String] = [:]) {
         if elementName == tagName {
             id = attributeDict["id"]
-            type = attributeDict["type"]
+            kind = attributeDict["type"]
+                .flatMap(FamilyItem.Kind.init(rawValue:))
             return
         }
 
@@ -81,7 +82,7 @@ internal final class FamilyItemParser: NSObject, NodeParser {
                 qualifiedName _: String?) {
         if elementName == tagName {
             result = FamilyItem(id: id,
-                                type: type,
+                                type: kind,
                                 thumbnail: thumbnailParser.result,
                                 image: imageParser.result,
                                 names: names,

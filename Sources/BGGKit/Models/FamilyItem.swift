@@ -9,7 +9,7 @@ import Foundation
 
 public struct FamilyItem: BaseItem {
     public let id: String
-    public let type: String
+    public let type: Kind
     public let thumbnail: URL?
     public let image: URL?
     public let names: [Name]
