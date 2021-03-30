@@ -1,0 +1,55 @@
+//
+//  RankParser.swift
+//  BGGXMLApi2
+//
+//  Created by Matteo Matassoni on 14/10/2020.
+//
+
+import Foundation
+import StackParsing
+
+internal final class RankParser: NSObject, NodeParser {
+    private let tagName: String
+
+    var type: ThingItem.Statistics.Ratings.Rank.Kind!
+    var id: String!
+    var name: ThingItem.Statistics.Ratings.Rank.Name!
+    var friendlyName: String!
+    var value: Int?
+    var bayesAverage: Double?
+
+    var stack: ParsersStack?
+    var result: ThingItem.Statistics.Ratings.Rank?
+
+    init(tagName: String) {
+        self.tagName = tagName
+    }
+
+    func parser(_: XMLParser,
+                didStartElement elementName: String,
+                namespaceURI _: String?,
+                qualifiedName _: String?,
+                attributes attributeDict: [String: String] = [:]) {
+        guard elementName == tagName
+        else { return }
+
+        type = attributeDict["type"].flatMap(ThingItem.Statistics.Ratings.Rank.Kind.init)
+        id = attributeDict["id"]
+        name = attributeDict["name"].flatMap(ThingItem.Statistics.Ratings.Rank.Name.init)
+        friendlyName = attributeDict["friendlyname"]
+        value = attributeDict["value"].flatMap(Int.init)
+        bayesAverage = attributeDict["bayesaverage"].flatMap(Double.init)
+    }
+
+    func parser(_: XMLParser, didEndElement elementName: String, namespaceURI _: String?, qualifiedName _: String?) {
+        if elementName == tagName {
+            result = ThingItem.Statistics.Ratings.Rank(type: type,
+                                                       id: id,
+                                                       name: name,
+                                                       friendlyName: friendlyName,
+                                                       value: value,
+                                                       bayesAverage: bayesAverage)
+            stack?.pop()
+        }
+    }
+}

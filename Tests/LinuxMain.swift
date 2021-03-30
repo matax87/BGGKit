@@ -1,6 +1,7 @@
 import XCTest
 
-import BGGKitTests
+import BGGXMLApi2Tests
+import StackParsingTests
 
 var tests = [XCTestCaseEntry]()
 tests += ThingItemsParserTests.allTests()
@@ -15,6 +16,8 @@ tests += HotPublisherTests.allTests()
 tests += SearchItemsParserTests.allTests()
 tests += SearchPublisherTests.allTests()
 
-tests += XMLApi2Tests.allTests()
+tests += clientTests.allTests()
+
+tests += Tests.allTests()
 
 XCTMain(tests)
